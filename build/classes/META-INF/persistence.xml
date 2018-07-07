@@ -5,8 +5,7 @@
 
 	<persistence-unit name="projeto">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>controle.CalendarioMB</class>
-		<class>controle.MenuMB</class>
+
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/churrasco" />
