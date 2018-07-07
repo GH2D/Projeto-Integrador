@@ -1,4 +1,4 @@
-package controle;
+package entidade;
 
 public class Fornecedor {
 

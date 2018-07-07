@@ -1,4 +1,4 @@
-package controle;
+package entidade;
 
 public class Cidade extends Estado {
 	private String nome;

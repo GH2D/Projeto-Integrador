@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:p="http://primefaces.org/ui">
+       
+
+<h:head></h:head> 
+ <body>
+<h:form id="form">
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel for="inline" value="Inline:" />
+        <p:calendar id="inline" value="#{calendarioMB.date1}" mode="inline" />
+ 
+        <p:outputLabel for="popup" value="Popup:" />
+        <p:calendar id="popup" value="#{calendarioMB.date2}" />
+ 
+        <p:outputLabel for="button" value="Button:" />
+        <p:calendar id="button" value="#{calendarioMB.date3}" showOn="button" />
+ 
+        <p:outputLabel for="event" value="Select Event:" />
+        <p:calendar id="event" value="#{calendarioMB.date4}">
+            <p:ajax event="dateSelect" listener="#{calendarioMB.onDateSelect}" update="msgs" />
+        </p:calendar>
+ 
+        <p:outputLabel for="german" value="German:" />
+        <p:calendar id="german" value="#{calendarioMB.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+ 
+        <p:outputLabel for="restricted" value="Restricted:" />
+        <p:calendar id="restricted" value="#{calendarioMB.date6}" mindate="4/1/14" maxdate="7/1/14" />
+ 
+        <p:outputLabel for="multi" value="Multiple:" />
+        <p:calendar id="multi" value="#{calendarioMB.date7}" pages="3" />
+ 
+        <p:outputLabel for="effect" value="Effect:" />
+        <p:calendar id="effect" value="#{calendarioMB.date8}" effect="fold" />
+ 
+        <p:outputLabel for="mask" value="Mask:" />
+        <p:calendar id="mask" value="#{calendarioMB.date9}" pattern="dd-MM-yyyy" mask="true" />
+ 
+        <p:outputLabel for="datetime" value="Datetime:" />
+        <p:calendar id="datetime" value="#{calendarioMB.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+ 
+        <p:outputLabel for="time" value="Time:" />
+        <p:calendar id="time" value="#{calendarioMB.date11}" pattern="HH:mm" timeOnly="true"  />
+    </h:panelGrid>
+    </h:form>
+</body> 
+</html>

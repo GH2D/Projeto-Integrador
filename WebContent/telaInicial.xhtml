@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head> 
+<body background="https://st2.depositphotos.com/3159197/8817/i/950/depositphotos_88172064-stock-photo-3d-cinema-clapper-film-reel.jpg"  > 
+
+<h:form>  
+    <p:growl id="messages"/>
+    <p:menubar>
+        <p:submenu label="Usuário" icon="ui-icon-search">
+            <p:menuitem value="Consultar" url="#" />
+            <p:separator />
+            <p:menuitem value="Cadastrar" url="#" />
+        </p:submenu>
+ 
+        <p:submenu label="Movimentação" icon="ui-icon-pencil">
+            <p:menuitem value="Locar" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Devolver" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+ 
+        <p:submenu label="Relatórios" icon="ui-icon-document">
+            <p:menuitem value="Registros" url="#" />
+        </p:submenu>
+ 
+        <p:submenu label="Ferramentas" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="Save" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
+                <p:menuitem value="Update" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+            </p:submenu>
+        </p:submenu>
+ 
+        <p:menuitem value="Fechar" url="http://www.primefaces.org" icon="ui-icon-close" />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
+            <p:commandButton type="button" value="Ok" icon="ui-icon-extlink" />
+                    <p:calendar id="button" value="#{calendarioMB.date10}" showOn="button" pattern="MM/dd/yyyy HH:mm:ss" />
+            
+        </f:facet>
+    </p:menubar>
+</h:form>
+
+ 
+ <p:stack icon="" expanded="true" position="rigth">
+    <p:menuitem value="Home" icon="https://st3.depositphotos.com/7889414/12831/v/950/depositphotos_128314802-stock-illustration-web-site-menu-icon-flat.jpg" url="#"/>
+    <p:menuitem value="Cadastrar" icon="https://image.freepik.com/icones-gratis/adicionar-simbolo-usuario-da-interface-de_318-63521.jpg" url="#"/>
+    <p:menuitem value="Locação" icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYV4Dm-YxpHIFgUIUHEQ15duuczTDtgichYQArF1k_oAu7hg_mg" url="#"/>
+    <p:menuitem value="Lixeira" icon="https://image.freepik.com/icones-gratis/lixeira_318-35857.jpg" url="#"/>
+</p:stack>
+		
+
+</body> 
+</html>
