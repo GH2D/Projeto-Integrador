@@ -5,6 +5,15 @@
 
 	<persistence-unit name="projeto">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>entidade.Pessoa</class>
+		<class>entidade.Fornecedor</class>
+		<class>entidade.Atendente</class>
+		<class>entidade.Cidade</class>
+		<class>entidade.Estado</class>
+		<class>entidade.Filmes</class>
+		<class>entidade.Jogo</class>
+		<class>entidade.Cliente</class>
+		<class>entidade.Dependente</class>
 
 
 		<properties>

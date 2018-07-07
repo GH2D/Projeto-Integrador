@@ -1,5 +1,8 @@
 package entidade;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Cidade extends Estado {
 	private String nome;
 	private Estado estado;

@@ -1,5 +1,9 @@
 package entidade;
 
-public class Dependente {
+import javax.persistence.Entity;
+
+@Entity
+public class Dependente extends Pessoa{
+	private Pessoa pessoa;
 
 }
