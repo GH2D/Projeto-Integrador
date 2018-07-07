@@ -1,0 +1,52 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.JanelaCenter{
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 1px 1px 10px #888888;
+    border-radius: 10px;
+    width:50%;
+    height:50%;
+    top:20%;
+}
+.BtnFechar{
+    position:absolute;
+    border:none;
+    border-radius: 100%;
+    padding-top:2px;
+    padding-bottom:3px;
+    color:white;
+    background: linear-gradient(to top,#4c4c4c,#a5a5a5);
+    bottom:93%;
+    left:94%;
+}
+.BtnFechar:hover{
+    background: linear-gradient(to top,#ed4444,#ff5656);
+}
+.BtnConfirma{
+    position:absolute;
+    border: none;
+    border-bottom-right-radius:10px;
+    height:40px;
+    bottom:0%;
+    left:86%;
+    background: linear-gradient(to top,#2db73a,#36d845);
+    color:white;
+}
+.BtnConfirma:hover{
+    background: linear-gradient(to top,#36d845,#34ed45);       
+}
+.BtnCancela{
+   position:absolute;
+   border: none;
+   bottom:0%;
+   left:72%;
+   height:40px;
+   background: linear-gradient(to top,#ed4444,#ff5656);
+   color:white;
+}
+.BtnCancela:hover{
+   background: linear-gradient(to top,#ff5656,#ff8282); 
+}
