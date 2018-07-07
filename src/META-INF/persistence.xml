@@ -20,7 +20,7 @@
 		<class>entidade.Relatorios</class>
 
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/churrasco" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/videoLocadora" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
