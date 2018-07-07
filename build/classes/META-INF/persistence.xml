@@ -14,7 +14,10 @@
 		<class>entidade.Jogo</class>
 		<class>entidade.Cliente</class>
 		<class>entidade.Dependente</class>
-
+		<class>entidade.Midia</class>
+		<class>entidade.ItensLocados</class>
+		<class>entidade.Locacao</class>
+		<class>entidade.Relatorios</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/churrasco" />

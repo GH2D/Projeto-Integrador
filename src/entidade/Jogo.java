@@ -1,14 +1,25 @@
 package entidade;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Jogo {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class Jogo extends Midia{
 	private String plataforma;
+	private Midia midia;
+
+	public Midia getMidia() {
+		return midia;
+	}
+
+	public void setMidia(Midia midia) {
+		this.midia = midia;
+	}
+
+	public String getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(String plataforma) {
+		this.plataforma = plataforma;
+	}
 }

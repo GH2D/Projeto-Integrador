@@ -1,14 +1,17 @@
 package entidade;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Filmes {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class Filmes extends Midia{
+	private String atores;
+
+	public String getAtores() {
+		return atores;
+	}
+
+	public void setAtores(String atores) {
+		this.atores = atores;
+	}
 
 }
