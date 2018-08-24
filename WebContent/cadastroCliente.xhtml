@@ -6,6 +6,10 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
+<ui:include src="/cabecalho.xhtml" /><br/>
+<p:growl id="growl" showSummary="true" showDetail="true">
+	<p:autoUpdate />
+</p:growl>
 <body>
 <h:form>     
     <p:growl id="messages" showDetail="true" />
@@ -101,5 +105,8 @@
 				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 		</p:confirmDialog>
 	</h:form>
+		<div class="footer">
+	<ui:include src="/footer.xhtml" />
+	</div>
 </body>
 </html>
