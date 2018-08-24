@@ -7,7 +7,7 @@
 
 <h:head></h:head>
 <ui:include src="/cabecalho.xhtml" />
-<br />
+<br/>
 <p:growl id="growl" showSummary="true" showDetail="true">
 	<p:autoUpdate />
 </p:growl>
@@ -26,24 +26,6 @@
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
-
-				<p:commandButton type="button" title="Salvar" icon="ui-icon-disk" />
-				<p:commandButton type="button" title="Deletar" icon="ui-icon-trash" />
-				<p:commandButton type="button" title="Imprimir" icon="ui-icon-print" />
-			</f:facet>
-
-			<f:facet name="right">
-				<p:menuButton value="Options">
-					<p:menuitem value="Salvar" actionListener="#{toolbarView.save}"
-						update="messages" icon="ui-icon-disk" />
-					<p:menuitem value="Atualizar"
-						actionListener="#{toolbarView.update}" update="messages"
-						icon="ui-icon-arrowrefresh-1-w" />
-					<p:menuitem value="Deletar" actionListener="#{toolbarView.delete}"
-						ajax="false" icon="ui-icon-close" />
-					<p:menuitem value="DashBoard" url="/telaInicial.xhtml"
-						icon="ui-icon-extlink" />
-				</p:menuButton>
 			</f:facet>
 
 		</p:toolbar>
@@ -70,20 +52,20 @@
 			<h:outputText value="Telefone" />
 			<p:inputText id="telefone" required="true"
 				requiredMessage="Preencher o telefone"
-				value="#{clienteMB.cliente.limiteCredito}" />
+				value="#{clienteMB.cliente.telefone}" />
 			<p:message for="telefone" />
 
-			<h:outputText value="Email" />
+			<h:outputText value="E-mail" />
 			<p:inputText id="email" required="true"
-				requiredMessage="Preencher o Email"
-				value="#{clienteMB.cliente.limiteCredito}" />
+				requiredMessage="Preencher o E-mail"
+				value="#{clienteMB.cliente.email}" />
 			<p:message for="email" />
 
 
-			<h:outputText value="Nascimento" />
+			<h:outputText value="Data de Nascimento" />
 			<p:inputText id="nasc" required="true"
 				requiredMessage="Preencher a data de Nascimento"
-				value="#{clienteMB.cliente.limiteCredito}" />
+				value="#{clienteMB.cliente.dt_nascimento}" />
 			<p:message for="nasc" />
 
 			<p:commandButton update="@form, formTabelaClientes" value="Cadastrar"

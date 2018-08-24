@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class Fornecedor extends Pessoa {
 	private Pessoa pessoa;
-	private String CNPJ;
+	private String cnpj;
 
 	public Pessoa getPessoa() {
 		return pessoa;
@@ -15,11 +15,11 @@ public class Fornecedor extends Pessoa {
 		this.pessoa = pessoa;
 	}
 
-	public String getCNPJ() {
-		return CNPJ;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 }

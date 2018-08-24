@@ -11,18 +11,25 @@ import javax.persistence.Id;
 public class Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String nome;
-	private String sobreNome;
 	private ArrayList<String> endereco = new ArrayList();
-	private String telefone;
-	private boolean status;
+	private String telefone;	
+	private String dt_nascimento;	
 
-	public long getId() {
+	public String getDt_nascimento() {
+		return dt_nascimento;
+	}
+
+	public void setDt_nascimento(String dt_nascimento) {
+		this.dt_nascimento = dt_nascimento;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -32,14 +39,6 @@ public class Pessoa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getSobreNome() {
-		return sobreNome;
-	}
-
-	public void setSobreNome(String sobreNome) {
-		this.sobreNome = sobreNome;
 	}
 
 	public ArrayList<String> getEndereco() {
@@ -56,13 +55,5 @@ public class Pessoa {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 }
