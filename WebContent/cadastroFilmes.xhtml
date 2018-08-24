@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<ui:include src="/cabecalho.xhtml" /><br/>
+<p:growl id="growl" showSummary="true" showDetail="true">
+	<p:autoUpdate />
+</p:growl>
+<body>
+	<h:form>
+		<p:growl id="messages" showDetail="true" />
+
+		<p:toolbar>
+			<f:facet name="left">
+				<p:commandButton type="button" value="Novo" icon="ui-icon-document" />
+
+				<p:commandButton type="button" value="Abrir"
+					icon="ui-icon-folder-open" />
+
+				<span class="ui-separator"> <span
+					class="ui-icon ui-icon-grip-dotted-vertical" />
+				</span>
+
+				<p:commandButton type="button" title="Salvar" icon="ui-icon-disk" />
+				<p:commandButton type="button" title="Deletar" icon="ui-icon-trash" />
+				<p:commandButton type="button" title="Imprimir" icon="ui-icon-print" />
+			</f:facet>
+
+			<f:facet name="right">
+				<p:menuButton value="Options">
+					<p:menuitem value="Salvar" actionListener="#{toolbarView.save}"
+						update="messages" icon="ui-icon-disk" />
+					<p:menuitem value="Atualizar"
+						actionListener="#{toolbarView.update}" update="messages"
+						icon="ui-icon-arrowrefresh-1-w" />
+					<p:menuitem value="Deletar" actionListener="#{toolbarView.delete}"
+						ajax="false" icon="ui-icon-close" />
+					<p:menuitem value="DashBoard" url="/telaInicial.xhtml"
+						icon="ui-icon-extlink" />
+				</p:menuButton>
+			</f:facet>
+
+		</p:toolbar><br/>
+		<h:form id="form">
+			<p:dataGrid var="film" value="#{dataGridView.film}" columns="3"
+				layout="grid" rows="12" paginator="true" id="film"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="6,12,16">
+
+				<f:facet name="header">
+            Filmes
+        </f:facet>
+
+				<p:panel header="#{film.id}" style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage name="demo/images/film/#{film.brand}.gif" />
+
+						<h:outputText value="#{film.year}" />
+
+						<p:commandLink update=":form:filmDetail"
+							oncomplete="PF('filmDialog').show()" title="View Detail">
+							<h:outputText styleClass="ui-icon ui-icon-search"
+								style="margin:0 auto;" />
+							<f:setPropertyActionListener value="#{film}"
+								target="#{dataGridView.selectedfilm}" />
+						</p:commandLink>
+					</h:panelGrid>
+				</p:panel>
+
+			</p:dataGrid>
+
+			<p:dialog header="film Info" widgetVar="filmDialog" modal="true"
+				showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="filmDetail" style="text-align:center;">
+					<p:panelGrid columns="2"
+						rendered="#{not empty dataGridView.selectedfilm}"
+						columnClasses="label,value">
+						<f:facet name="header">
+							<p:graphicImage
+								name="demo/images/film/#{dataGridView.selectedfilm.brand}-big.gif" />
+						</f:facet>
+
+						<h:outputText value="Id:" />
+						<h:outputText value="#{dataGridView.selectedfilm.id}" />
+
+						<h:outputText value="Year" />
+						<h:outputText value="#{dataGridView.selectedfilm.year}" />
+
+						<h:outputText value="Color:" />
+						<h:outputText value="#{dataGridView.selectedfilm.color}"
+							style="color:#{dataGridView.selectedfilm.color}" />
+
+						<h:outputText value="Price" />
+						<h:outputText value="$#{dataGridView.selectedfilm.price}" />
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
+	</h:form>
+	<div class="footer">
+	<ui:include src="/footer.xhtml" />
+	</div>
+</body>
+</html>

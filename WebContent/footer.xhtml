@@ -2,10 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head> 
+<style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+</style>
 <body> 
 
+<div class="footer">
+	<p:panel style="position:bottom;">
+		<f:facet name="footer">
+		<p:graphicImage library="itens" name="logo/fusca.png" width="70px" height="70px" align="left">	Fusca Azul 2018 © All rights reserved.
+		    </p:graphicImage>
+				</f:facet>
+	</p:panel>
+</div>
 </body> 
 </html>

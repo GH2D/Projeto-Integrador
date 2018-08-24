@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<ui:include src="/cabecalho.xhtml" />
+	<p:growl id="growl" showSummary="true" showDetail="true">
+		<p:autoUpdate />
+	</p:growl>
+	<h:form>
+		<p:growl id="messages" showDetail="true" />
+
+		<p:toolbar>
+			<f:facet name="left">
+				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
+					onclick="PF('dialogWidget').show()" />
+
+				<p:commandButton type="button" value="Abrir"
+					icon="ui-icon-folder-open" />
+
+				<span class="ui-separator"> <span
+					class="ui-icon ui-icon-grip-dotted-vertical" />
+				</span>
+
+				<p:commandButton type="button" title="Salvar" icon="ui-icon-disk" />
+				<p:commandButton type="button" title="Deletar" icon="ui-icon-trash" />
+				<p:commandButton type="button" title="Imprimir" icon="ui-icon-print" />
+			</f:facet>
+
+			<f:facet name="right">
+				<p:menuButton value="Options">
+					<p:menuitem value="Salvar" actionListener="#{toolbarView.save}"
+						update="messages" icon="ui-icon-disk" />
+					<p:menuitem value="Atualizar"
+						actionListener="#{toolbarView.update}" update="messages"
+						icon="ui-icon-arrowrefresh-1-w" />
+					<p:menuitem value="Deletar" actionListener="#{toolbarView.delete}"
+						ajax="false" icon="ui-icon-close" />
+					<p:menuitem value="DashBoard" url="/telaInicial.xhtml"
+						icon="ui-icon-extlink" />
+				</p:menuButton>
+			</f:facet>
+
+		</p:toolbar>
+	</h:form>
+	<h:form id="formularioCadastroJogos">
+
+		<h:panelGrid columns="3" layout="grid">
+			<h:outputText value="Titulo" />
+			<p:inputText id="nomeTitulo" required="true"
+				requiredMessage="Preencher o Titulo"
+				value="#" />
+			<p:message for="nomeTitulo" />
+
+			<h:outputText value="Plataforma" />
+			<p:inputText id="plataforma" required="true"
+				requiredMessage="Preencher a Plataforma"
+				value="#" />
+			<p:message for="plataforma" />
+
+			<h:outputText value="Genêro" />
+			<p:inputText id="genero" required="true"
+				requiredMessage="Preencher o Genêro"
+				value="#" />
+			<p:message for="genero" />
+
+			<h:outputText value="Categoria" />
+			<p:inputText id="categoria" required="true"
+				requiredMessage="Preencher a Categoria"
+				value="#" />
+			<p:message for="categoria" />
+
+			<h:outputText value="Distribuidora" />
+			<p:inputText id="distribuidora" required="true"
+				requiredMessage="Preencher a Distribuidora"
+				value="#" />
+			<p:message for="distribuidora" />
+
+			<h:outputText value="Faixa Etaria" />
+			<p:inputText id="faixaEtaria" required="true"
+				requiredMessage="Preencher a Faixa Etaria"
+				value="#" />
+			<p:message for="faixaEtaria" />
+			
+			<h:outputText value="Data de lançamento" />
+			<p:inputText id="dataLancamento" required="true"
+				requiredMessage="Preencher a Data de Lançamento"
+				value="#" />
+			<p:message for="dataLancamento" />
+
+			<p:commandButton update="@form, formTabelaJogos" value="Cadastrar"
+				actionListener="#{clienteMB.inserir()}" />
+		</h:panelGrid>
+	</h:form>
+	<br />
+	<h:form id="formTabelaJogos">
+		<p:dataTable value="#" var="">
+			<p:column headerText="ID">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Titulo">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Plataforma">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Genêro">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Categoria">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Distribuidora">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Faixa Etaria">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Data de Lançamento">
+				<h:outputText value="#" />
+			</p:column>
+			<p:column headerText="Opções">
+				<p:commandButton value="Alterar" update="formularioCadastroJogos">
+					<f:setPropertyActionListener value="#{cid}"
+						target="#{clienteMB.cliente}" />
+				</p:commandButton>
+				<p:commandButton value="Excluir"
+					actionListener="#{clienteMB.excluir(cid.id)}" update="@form">
+					<p:confirm header="Confirmação" message="Deseja excluir??"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Sim" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+	</h:form>
+	<div class="footer">
+		<ui:include src="/footer.xhtml" />
+	</div>
+</body>
+</html>

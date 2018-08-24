@@ -7,6 +7,10 @@
 
 <h:head></h:head>
 <body>
+<ui:include src="/cabecalho.xhtml" />
+<p:growl id="growl" showSummary="true" showDetail="true">
+    <p:autoUpdate />
+</p:growl>
 <h:form>     
     <p:growl id="messages" showDetail="true" />
  
@@ -36,7 +40,7 @@
  
     </p:toolbar>
 </h:form>
-	<h:form id="formularioCadastroCliente">
+	<h:form id="formularioCadastroFuncionario">
 
 		<h:panelGrid columns="3">
 			<h:outputText value="Nome" />
@@ -63,12 +67,12 @@
 				value="#{clienteMB.cliente.limiteCredito}" />
 			<p:message for="limiteCreditCliente" />
 
-			<p:commandButton update="@form, formTabelaClientes"
+			<p:commandButton update="@form, formTabelaFuncionarios"
 				value="Cadastrar" actionListener="#{clienteMB.inserir()}" />
 		</h:panelGrid>
 	</h:form>
 	<br />
-	<h:form id="formTabelaClientes">
+	<h:form id="formTabelaFuncionarios">
 		<p:dataTable value="#{clienteMB.clientes}" var="cid">
 			<p:column headerText="ID">
 				<h:outputText value="#{cid.id}" />
@@ -82,7 +86,7 @@
 
 			<p:column headerText="Opções">
 				<p:commandButton value="Alterar"
-					update="formularioCadastroCliente">
+					update="formularioTabelaFuncionarios">
 					<f:setPropertyActionListener value="#{cid}"
 						target="#{clienteMB.cliente}" />
 				</p:commandButton>
@@ -101,5 +105,8 @@
 				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 		</p:confirmDialog>
 	</h:form>
+	<div class="footer">
+	<ui:include src="/footer.xhtml" />
+	</div>
 </body>
 </html>
