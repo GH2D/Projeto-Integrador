@@ -20,9 +20,9 @@
 		<class>entidade.Relatorios</class>
 
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10250485" />
-			<property name="javax.persistence.jdbc.user" value="sql10250485" />
-			<property name="javax.persistence.jdbc.password" value="XDfl4f7rJQ" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/fuscaazul" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 
 			<property name="hibernate.hbm2ddl.auto" value="update" />
