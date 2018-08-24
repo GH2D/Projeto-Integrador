@@ -12,23 +12,23 @@
 		<p:growl id="messages" />
 		<p:menubar>
 			<p:submenu label="Usuário" icon="ui-icon-search">
-				<p:menuitem value="Funcionarios" url="/cadasstroFuncionario.xhtml" />
+				<p:menuitem value="Funcionarios" url="/faces/cadastroFuncionario.xhtml" />
 				<p:separator />
 				<p:menuitem value="Cadastrar" url="#" />
 			</p:submenu>
 			<p:submenu label="Gerenciar" icon="ui-icon-pencil">
-				<p:menuitem value="Filmes" url="/cadastroFilmes.xhtml" />
-				<p:menuitem value="Jogos" url="/cadastrojogos.xhtml" />
-				<p:menuitem value="Clientes" url="/cadastroClietens.xhtml" />
+				<p:menuitem value="Filmes" url="/faces/cadastroFilmes.xhtml" />
+				<p:menuitem value="Jogos" url="/faces/cadastroJogos.xhtml" />
+				<p:menuitem value="Clientes" url="/faces/cadastroCliente.xhtml" />
 				<p:separator />
-				<p:menuitem value="Locar" url="/cadastroLocacao.xhtml"
+				<p:menuitem value="Locar" url="/faces/cadastroLocacao.xhtml"
 					icon="ui-icon-arrowreturnthick-1-w" />
-				<p:menuitem value="Devolver" url="/cadastroDevolucao.xhtml"
+				<p:menuitem value="Devolver" url="/faces/cadastroDevolucao.xhtml"
 					icon="ui-icon-arrowreturnthick-1-e" />
 			</p:submenu>
 
 			<p:submenu label="Relatórios" icon="ui-icon-document">
-				<p:menuitem value="Registros" url="/relatorios.xhtml" />
+				<p:menuitem value="Registros" url="/faces/relatorios.xhtml" />
 			</p:submenu>
 
 			<p:submenu label="Ferramentas" icon="ui-icon-gear">
@@ -45,7 +45,7 @@
 					showOn="button" pattern="MM/dd/yyyy HH:mm:ss" />
 
 			</f:facet>
-			<p:menuitem value="Sair" url="/login.xhtml">
+			<p:menuitem value="Sair" url="/faces/login.xhtml">
 			</p:menuitem>
 		</p:menubar>
 	</h:form>
