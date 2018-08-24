@@ -45,14 +45,18 @@
 				</p:menuButton>
 			</f:facet>
 
-		</p:toolbar><br/>
+		</p:toolbar>
+		
+		<br/>
+		
+		
 		<h:form id="form">
 			<p:dataGrid var="film" value="#{dataGridView.film}" columns="3"
 				layout="grid" rows="12" paginator="true" id="film"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				rowsPerPageTemplate="6,12,16">
 
-				<f:facet name="header">
+		<f:facet name="header">
             Filmes
         </f:facet>
 
