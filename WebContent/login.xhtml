@@ -5,13 +5,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
-<body> 
+<h:head>
+	<h:outputStylesheet name="/css/estilo.css" library="css" />
+</h:head>
+<h:body style="background: url('#{request.contextPath}/itens/background/login.png') repeat-y !important;"> 
+<h:graphicImage value="/itens/logo/logo.png" style="position:absolute; top:65%;"/>
 
 <h:form>             
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
  
-    <p:panel header="Login" style="width:400px; margin-top:10%; margin-left:35%;">
+    <p:panel styleClass="JanelaCenter" header="Login" style="width:400px; margin-top:10%; margin-left:35%;">
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="usuario" value="Usuário:" />
             <p:inputText id="usuario" value="#{login.usuario}" required="true" label="usuario" />
@@ -20,7 +23,7 @@
             <p:password id="psenha" value="#{login.senha}" required="true" label="senha" />
  
             <f:facet name="footer">
-                <p:commandButton value="Login" update="growl" actionListener="#{login.login}"
+                <p:commandButton value="Login" styleClass="BtnConfirma"  update="growl" actionListener="#{login.login}"
                                  oncomplete="handleLoginRequest(xhr, status, args)" />
             </f:facet>  
         </h:panelGrid>
@@ -29,5 +32,5 @@
 	<div class="footer">
 	<ui:include src="/footer.xhtml" />
 	</div>
-</body>
+</h:body>
 </html>
