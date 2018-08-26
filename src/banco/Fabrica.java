@@ -6,14 +6,14 @@ import javax.persistence.Persistence;
 
 
 public class Fabrica {
-	private static EntityManagerFactory fac;
+	private static EntityManagerFactory fabrica;
 	
 	
 	public  static EntityManagerFactory get(){
-		if (fac == null) {
-			fac = Persistence.createEntityManagerFactory("projeto");
+		if (fabrica == null) {
+			fabrica = Persistence.createEntityManagerFactory("projeto");
 		}
-		return fac;
+		return fabrica;
 	}
 
 }

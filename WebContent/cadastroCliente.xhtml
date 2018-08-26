@@ -7,121 +7,196 @@
 
 <h:head></h:head>
 <ui:include src="/cabecalho.xhtml" />
-<br/>
+<br />
 <p:growl id="growl" showSummary="true" showDetail="true">
 	<p:autoUpdate />
 </p:growl>
 <body>
 	<h:form>
 		<p:growl id="messages" showDetail="true" />
-
 		<p:toolbar>
 			<f:facet name="left">
 				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
-					onclick="PF('dialogWidget').show()" />
-
+					onclick="PF('dlg1').show()" title="Cadastrar" >
+					<p:resetInput target="logindialogn" />
+					</p:commandButton>
 				<p:commandButton type="button" value="Abrir"
 					icon="ui-icon-folder-open" />
-
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
 			</f:facet>
-
 		</p:toolbar>
 	</h:form>
-	<h:form id="formularioCadastroCliente">
 
-		<h:panelGrid columns="3">
-			<h:outputText value="Nome" />
-			<p:inputText id="nomeCliente" required="true"
-				requiredMessage="Preencher o Nome" value="#{clienteMB.cliente.nome}" />
-			<p:message for="nomeCliente" />
+	<p:dialog id="logindialogn" header="Cadastrar" widgetVar="dlg"
+		resizable="false">
+		<h:form id="cad">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
 
-			<h:outputText value="Endereço" />
-			<p:inputText id="enderecoCliente" required="true"
-				requiredMessage="Preencher o Endereço"
-				value="#{clienteMB.cliente.endereco}" />
-			<p:message for="enderecoCliente" />
+				<h:outputText value="Nome" />
+				<p:inputText id="nomeCliente" required="true"
+					requiredMessage="Preencher o Nome"
+					value="#{clienteMB.cliente.nome}" />
+				<p:message for="nomeCliente" />
 
-			<h:outputText value="CPF" />
-			<p:inputText id="cpfCliente" required="true"
-				requiredMessage="Preencher o CPF" value="#{clienteMB.cliente.cpf}" />
-			<p:message for="cpfCliente" />
+				<h:outputText value="Endereço" />
+				<p:inputText id="enderecoCliente" required="true"
+					requiredMessage="Preencher o Endereço"
+					value="#{clienteMB.cliente.endereco}" />
+				<p:message for="enderecoCliente" />
 
-			<h:outputText value="Telefone" />
-			<p:inputText id="telefone" required="true"
-				requiredMessage="Preencher o telefone"
-				value="#{clienteMB.cliente.telefone}" />
-			<p:message for="telefone" />
+				<h:outputText value="CPF" />
+				<p:inputText id="cpfCliente" required="true"
+					requiredMessage="Preencher o CPF" value="#{clienteMB.cliente.cpf}" />
+				<p:message for="cpfCliente" />
 
-			<h:outputText value="E-mail" />
-			<p:inputText id="email" required="true"
-				requiredMessage="Preencher o E-mail"
-				value="#{clienteMB.cliente.email}" />
-			<p:message for="email" />
+				<h:outputText value="Telefone" />
+				<p:inputText id="telefone" required="true"
+					requiredMessage="Preencher o telefone"
+					value="#{clienteMB.cliente.telefone}" />
+				<p:message for="telefone" />
+
+				<h:outputText value="E-mail" />
+				<p:inputText id="email" required="true"
+					requiredMessage="Preencher o E-mail"
+					value="#{clienteMB.cliente.email}" />
+				<p:message for="email" />
 
 
-			<h:outputText value="Data de Nascimento" />
-			<p:inputText id="nasc" required="true"
-				requiredMessage="Preencher a data de Nascimento"
-				value="#{clienteMB.cliente.dt_nascimento}" />
-			<p:message for="nasc" />
+				<h:outputText value="Data de Nascimento" />
+				<p:inputText id="nasc" required="true"
+					requiredMessage="Preencher a data de Nascimento"
+					value="#{clienteMB.cliente.dt_nascimento}" />
+				<p:message for="nasc" />
 
-			<p:commandButton update="@form, formTabelaClientes" value="Cadastrar"
-				actionListener="#{clienteMB.inserir()}" />
-		</h:panelGrid>
-	</h:form>
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaClientes"
+							value="Cadastrar" actionListener="#{clienteMB.inserir()}"
+							oncomplete="faces/cadastroCliente?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+	
+	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
+		resizable="false">
+		<h:form id="cadas">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputText value="Nome" />
+				<p:inputText id="nomeCliente" required="true"
+					requiredMessage="Preencher o Nome"
+					value="#{clienteMB.cliente.nome}" />
+				<p:message for="nomeCliente" />
+
+				<h:outputText value="Endereço" />
+				<p:inputText id="enderecoCliente" required="true"
+					requiredMessage="Preencher o Endereço"
+					value="#{clienteMB.cliente.endereco}" />
+				<p:message for="enderecoCliente" />
+
+				<h:outputText value="CPF" />
+				<p:inputText id="cpfCliente" required="true"
+					requiredMessage="Preencher o CPF" value="#{clienteMB.cliente.cpf}" />
+				<p:message for="cpfCliente" />
+
+				<h:outputText value="Telefone" />
+				<p:inputText id="telefone" required="true"
+					requiredMessage="Preencher o telefone"
+					value="#{clienteMB.cliente.telefone}" />
+				<p:message for="telefone" />
+
+				<h:outputText value="E-mail" />
+				<p:inputText id="email" required="true"
+					requiredMessage="Preencher o E-mail"
+					value="#{clienteMB.cliente.email}" />
+				<p:message for="email" />
+
+
+				<h:outputText value="Data de Nascimento" />
+				<p:inputText id="nasc" required="true"
+					requiredMessage="Preencher a data de Nascimento"
+					value="#{clienteMB.cliente.dt_nascimento}" />
+				<p:message for="nasc" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaClientes"
+							value="Cadastrar" actionListener="#{clienteMB.inserir()}"
+							oncomplete="faces/cadastroCliente?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
 	<br />
 	<h:form id="formTabelaClientes">
 		<p:dataTable value="#{clienteMB.clientes}" var="cli">
 			<p:column headerText="ID">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.id}" />
 			</p:column>
 			<p:column headerText="Nome">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.nome}" />
 			</p:column>
 
 			<p:column headerText="Endereço">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.endereco}" />
 			</p:column>
 
 			<p:column headerText="CPF">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.cpf}" />
 			</p:column>
 
 			<p:column headerText="Telefone">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.telefone}" />
 			</p:column>
 
 			<p:column headerText="Email">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.email}" />
 			</p:column>
 
 			<p:column headerText="Nascimento">
-				<h:outputText value="#" />
+				<h:outputText value="#{cli.dt_nascimento}" />
 			</p:column>
 
 			<p:column headerText="Opções">
-				<p:commandButton value="Alterar" update="formularioCadastroCliente">
-					<f:setPropertyActionListener value="#{cid}"
+
+				<p:commandButton value="Alterar" onclick="PF('dlg').show()"
+					update="cad">
+					<f:setPropertyActionListener value="#{cli}"
 						target="#{clienteMB.cliente}" />
 				</p:commandButton>
+
+
+
 				<p:commandButton value="Excluir"
-					actionListener="#{clienteMB.excluir(cid.id)}" update="@form">
+					actionListener="#{clienteMB.excluir(cli.id)}" update="@form">
 					<p:confirm header="Confirmação" message="Deseja excluir??"
 						icon="ui-icon-alert" />
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
-
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			<p:commandButton value="Sim" type="button"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			<p:commandButton value="Não" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
 	</h:form>
+
+
+
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Sim" type="button"
+			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button"
+			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
+
+
+
+
 	<div class="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>

@@ -10,9 +10,9 @@ public class ItensLocados {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Midia midia;
 	private Double preco;
 	private int quantidade;
+
 
 	public Long getId() {
 		return id;
@@ -20,14 +20,6 @@ public class ItensLocados {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Midia getMidia() {
-		return midia;
-	}
-
-	public void setMidia(Midia midia) {
-		this.midia = midia;
 	}
 
 	public Double getPreco() {

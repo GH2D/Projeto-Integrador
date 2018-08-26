@@ -5,19 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import sun.util.calendar.BaseCalendar.Date;
 
 @Entity
 public class Locacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Cliente cliente;
-	private Atendente atendente;
-	private ItensLocados itensLocados;
 	private String titulo;
-	private Date datalocacao;
-	private Date dataDevolucao;
+	private String datalocacao;
+	private String dataDevolucao;
 	private Boolean devolucao;
 	private Double multa;
 
@@ -29,29 +25,7 @@ public class Locacao {
 		this.id = id;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Atendente getAtendente() {
-		return atendente;
-	}
-
-	public void setAtendente(Atendente atendente) {
-		this.atendente = atendente;
-	}
-
-	public ItensLocados getItensLocados() {
-		return itensLocados;
-	}
-
-	public void setItensLocados(ItensLocados itensLocados) {
-		this.itensLocados = itensLocados;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -61,19 +35,19 @@ public class Locacao {
 		this.titulo = titulo;
 	}
 
-	public Date getDatalocacao() {
+	public String getDatalocacao() {
 		return datalocacao;
 	}
 
-	public void setDatalocacao(Date datalocacao) {
+	public void setDatalocacao(String datalocacao) {
 		this.datalocacao = datalocacao;
 	}
 
-	public Date getDataDevolucao() {
+	public String getDataDevolucao() {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(Date dataDevolucao) {
+	public void setDataDevolucao(String dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 

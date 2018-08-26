@@ -16,9 +16,9 @@ public class ClienteMB {
 	private List<Cliente> clientes = new ArrayList<>();
 	private DAOGenerico<Cliente> dao = new DAOGenerico<>(Cliente.class);
 	
-	/*public ClienteMB(){
+	public ClienteMB(){
 		clientes = dao.buscarTodos();
-	}*/
+	}
 
 	public void inserir() {
 		
