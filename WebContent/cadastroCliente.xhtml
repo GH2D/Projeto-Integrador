@@ -102,12 +102,12 @@
 				<p:message for="enderecoCliente" />
 
 				<h:outputText value="CPF" />
-				<p:inputText id="cpfCliente" required="true"
+				<p:inputMask mask="***.***.***-**"  id="cpfCliente" required="true"
 					requiredMessage="Preencher o CPF" value="#{clienteMB.cliente.cpf}" />
 				<p:message for="cpfCliente" />
 
 				<h:outputText value="Telefone" />
-				<p:inputText id="telefone" required="true"
+				<p:inputMask mask="(**) ****-****" id="telefone" required="true"
 					requiredMessage="Preencher o telefone"
 					value="#{clienteMB.cliente.telefone}" />
 				<p:message for="telefone" />
@@ -120,7 +120,7 @@
 
 
 				<h:outputText value="Data de Nascimento" />
-				<p:inputText id="nasc" required="true"
+				<p:inputMask mask="**/**/****" id="nasc" required="true"
 					requiredMessage="Preencher a data de Nascimento"
 					value="#{clienteMB.cliente.dt_nascimento}" />
 				<p:message for="nasc" />
