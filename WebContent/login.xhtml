@@ -6,24 +6,22 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<h:outputStylesheet name="/css/estilo.css" library="css" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/Semantic-UI-CSS-master/semantic.css" />
 </h:head>
 <h:body style="background: url('#{request.contextPath}/itens/background/login.png') repeat-y !important;"> 
 <h:graphicImage value="/itens/logo/logo.png" style="position:absolute; top:65%;"/>
 
-<h:form>             
+<h:form style="width:400px; margin-top:10%; margin-left:35%;">             
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
- 
-    <p:panel styleClass="JanelaCenter" header="Login" style="width:400px; margin-top:10%; margin-left:35%;">
-        <h:panelGrid columns="2" cellpadding="5">
+    <p:panel styleClass="ui inverted segment" > 	
+    	<h4 class="ui dividing inverted header">Login</h4>  
+        <h:panelGrid styleClass="ui inverted form" columns="2" cellpadding="5"> 
             <h:outputLabel for="usuario" value="Usuário:" />
             <p:inputText id="usuario" value="#{login.usuario}" required="true" label="usuario" />
- 
             <h:outputLabel for="senha" value="Senha:" />
-            <p:password id="psenha" value="#{login.senha}" required="true" label="senha" />
- 
+            <p:password id="psenha" value="#{login.senha}" required="true" label="senha" /> 
             <f:facet name="footer">
-                <p:commandButton value="Login" styleClass="BtnConfirma"  update="growl" actionListener="#{login.login}"
+                <p:commandButton value="Login" styleClass="ui inverted olive basic button"  update="growl" actionListener="#{login.login}"
                                  oncomplete="handleLoginRequest(xhr, status, args)" />
             </f:facet>  
         </h:panelGrid>
