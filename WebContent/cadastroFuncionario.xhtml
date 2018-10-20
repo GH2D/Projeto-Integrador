@@ -51,70 +51,70 @@
 
 		<h:panelGrid columns="3">
 			<h:outputText value="Nome" />
-			<p:inputText id="nomeCliente" required="true"
-				requiredMessage="Preencher o Nome" value="#{clienteMB.cliente.nome}" />
+			<p:inputText id="nomeFuncionario" required="true"
+				requiredMessage="Preencher o Nome" value="#{atendenteMB.atendente.nome}" />
 			<p:message for="nomeCliente" />
 
 			<h:outputText value="Endereço" />
 			<p:inputText id="enderecoCliente" required="true"
 				requiredMessage="Preencher o Endereço"
-				value="#{clienteMB.cliente.endereco}" />
+				value="#{atendenteMB.atendente.endereco}" />
 			<p:message for="enderecoCliente" />
 
 			<h:outputText value="CPF" />
 			<p:inputText id="cpfCliente" required="true"
-				requiredMessage="Preencher o CPF" value="#{clienteMB.cliente.cpf}" />
+				requiredMessage="Preencher o CPF" value="#{atendenteMB.atendente.cpf}" />
 			<p:message for="cpfCliente" />
 
 			<h:outputText value="Telefone" />
 			<p:inputText id="funTelefone" required="true"
-				requiredMessage="Preencher o Telefone" value="#" />
+				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.telefone}" />
 			<p:message for="funTelefone" />
 
 			<h:outputText value="E-mail" />
 			<p:inputText id="funEmail" required="true"
-				requiredMessage="Preencher o Telefone" value="#" />
+				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.email}" />
 			<p:message for="funEmail" />
 
 			<h:outputText value="Endereço" />
 			<p:inputText id="funEndereco" required="true"
-				requiredMessage="Preencher o Telefone" value="#" />
+				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.endereco}" />
 			<p:message for="funEndereco" />
 
 			<p:commandButton update="@form, formTabelaFuncionarios"
-				value="Cadastrar" actionListener="#{clienteMB.inserir()}" />
+				value="Cadastrar" actionListener="#{atendenteMB.inserir()}" />
 		</h:panelGrid>
 	</h:form>
 	<br />
 	<h:form id="formTabelaFuncionarios">
-		<p:dataTable value="#{clienteMB.clientes}" var="cid">
+		<p:dataTable value="#{atendenteMB.atendentes}" var="ate">
 			<p:column headerText="ID">
-				<h:outputText value="#" />
+				<h:outputText value="#{ate.id}" />
 			</p:column>
 			<p:column headerText="Nome">
-				<h:outputText value="#" />
+				<h:outputText value="#{ate.nome}" />
 			</p:column>
 			<p:column headerText="Telefone">
-				<h:outputText value="#" />
+				<h:outputText value="#{ate.telefone}" />
 			</p:column>
 			<p:column headerText="CPF">
-				<h:outputText value="#" />
+				<h:outputText value="#{ate.cpf}" />
 			</p:column>
 			<p:column headerText="E-mail">
-				<h:outputText value="#" />
+				<h:outputText value="#{ate.email}" />
 			</p:column>
 			<p:column headerText="Endereço">
-				<h:outputText value="#" />
+				<h:outputText value="#{ate.endereco}" />
 			</p:column>
 
 			<p:column headerText="Opções">
 				<p:commandButton value="Alterar"
 					update="formularioTabelaFuncionarios">
-					<f:setPropertyActionListener value="#{cid}"
-						target="#{clienteMB.cliente}" />
+					<f:setPropertyActionListener value="#{ate}"
+						target="#{atendenteMB.atendente}" />
 				</p:commandButton>
 				<p:commandButton value="Excluir"
-					actionListener="#{clienteMB.excluir(cid.id)}" update="@form">
+					actionListener="#{atendenteMB.excluir(ate.id)}" update="@form">
 					<p:confirm header="Confirmação" message="Deseja excluir??"
 						icon="ui-icon-alert" />
 				</p:commandButton>

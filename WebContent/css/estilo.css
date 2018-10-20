@@ -28,7 +28,7 @@ body{
 .BtnFechar:hover{
     background: linear-gradient(to top,#ed4444,#ff5656);
 }
-.BtnConfirma{
+.ui-button .ui-button-text .BtnConfirma{
     position:absolute;
     border: none;
     border-bottom-right-radius:10px;

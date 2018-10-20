@@ -5,14 +5,13 @@
 
 	<persistence-unit name="projeto">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>entidade.Fornecedor</class>
-		<class>entidade.Atendente</class>
-		<class>entidade.Filmes</class>
-		<class>entidade.Jogo</class>
-		<class>entidade.Cliente</class>
-		<class>entidade.Dependente</class>
 		<class>entidade.ItensLocados</class>
 		<class>entidade.Locacao</class>
+		<class>entidade.Pessoa</class>
+		<class>entidade.Midia</class>
+		<class>entidade.Cliente</class>
+		<class>entidade.Fornecedor</class>
+		<class>entidade.Atendente</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/fuscaazul" />
