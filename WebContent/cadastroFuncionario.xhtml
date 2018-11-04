@@ -53,33 +53,33 @@
 			<h:outputText value="Nome" />
 			<p:inputText id="nomeFuncionario" required="true"
 				requiredMessage="Preencher o Nome" value="#{atendenteMB.atendente.nome}" />
-			<p:message for="nomeCliente" />
+			<p:message for="nomeFuncionario" />
 
 			<h:outputText value="Endereço" />
-			<p:inputText id="enderecoCliente" required="true"
+			<p:inputText id="enderecoFuncionario" required="true"
 				requiredMessage="Preencher o Endereço"
 				value="#{atendenteMB.atendente.endereco}" />
-			<p:message for="enderecoCliente" />
+			<p:message for="enderecoFuncionario" />
 
 			<h:outputText value="CPF" />
-			<p:inputText id="cpfCliente" required="true"
+			<p:inputText id="cpfFuncionario" required="true"
 				requiredMessage="Preencher o CPF" value="#{atendenteMB.atendente.cpf}" />
-			<p:message for="cpfCliente" />
+			<p:message for="cpfFuncionario" />
 
 			<h:outputText value="Telefone" />
-			<p:inputText id="funTelefone" required="true"
+			<p:inputText id="TelefoneFuncionario" required="true"
 				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.telefone}" />
-			<p:message for="funTelefone" />
+			<p:message for="TelefoneFuncionario" />
 
 			<h:outputText value="E-mail" />
-			<p:inputText id="funEmail" required="true"
+			<p:inputText id="EmailFuncionario" required="true"
 				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.email}" />
-			<p:message for="funEmail" />
+			<p:message for="EmailFuncionario" />
 
 			<h:outputText value="Endereço" />
-			<p:inputText id="funEndereco" required="true"
+			<p:inputText id="EnderecoFuncionario" required="true"
 				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.endereco}" />
-			<p:message for="funEndereco" />
+			<p:message for="EnderecoFuncionario" />
 
 			<p:commandButton update="@form, formTabelaFuncionarios"
 				value="Cadastrar" actionListener="#{atendenteMB.inserir()}" />
