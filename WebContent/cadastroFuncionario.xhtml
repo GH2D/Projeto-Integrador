@@ -6,110 +6,188 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
+<ui:include src="/cabecalho.xhtml" />
+
+<p:growl id="growl" showSummary="true" showDetail="true">
+	<p:autoUpdate />
+</p:growl>
 <body>
-	<ui:include src="/cabecalho.xhtml" />
-	<p:growl id="growl" showSummary="true" showDetail="true">
-		<p:autoUpdate />
-	</p:growl>
 	<h:form>
 		<p:growl id="messages" showDetail="true" />
-
 		<p:toolbar>
 			<f:facet name="left">
 				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
-					onclick="PF('dialogWidget').show()" />
-
+					onclick="PF('dlg1').show()" title="Cadastrar">
+					<p:resetInput target="logindialogn" />
+				</p:commandButton>
 				<p:commandButton type="button" value="Abrir"
 					icon="ui-icon-folder-open" />
-
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
-
-				<p:commandButton type="button" title="Salvar" icon="ui-icon-disk" />
-				<p:commandButton type="button" title="Deletar" icon="ui-icon-trash" />
-				<p:commandButton type="button" title="Imprimir" icon="ui-icon-print" />
 			</f:facet>
-
-			<f:facet name="right">
-				<p:menuButton value="Options">
-					<p:menuitem value="Salvar" actionListener="#{toolbarView.save}"
-						update="messages" icon="ui-icon-disk" />
-					<p:menuitem value="Atualizar"
-						actionListener="#{toolbarView.update}" update="messages"
-						icon="ui-icon-arrowrefresh-1-w" />
-					<p:menuitem value="Deletar" actionListener="#{toolbarView.delete}"
-						ajax="false" icon="ui-icon-close" />
-					<p:menuitem value="DashBoard" url="/telaInicial.xhtml"
-						icon="ui-icon-extlink" />
-				</p:menuButton>
-			</f:facet>
-
 		</p:toolbar>
 	</h:form>
-	<h:form id="formularioCadastroFuncionario">
 
-		<h:panelGrid columns="3">
-			<h:outputText value="Nome" />
-			<p:inputText id="nomeFuncionario" required="true"
-				requiredMessage="Preencher o Nome" value="#{atendenteMB.atendente.nome}" />
-			<p:message for="nomeFuncionario" />
+	<p:dialog id="logindialogn" header="Cadastrar" widgetVar="dlg"
+		resizable="false">
+		<h:form id="cad">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
 
-			<h:outputText value="Endereço" />
-			<p:inputText id="enderecoFuncionario" required="true"
-				requiredMessage="Preencher o Endereço"
-				value="#{atendenteMB.atendente.endereco}" />
-			<p:message for="enderecoFuncionario" />
+				<h:outputText value="Nome" />
+				<p:inputText id="nomeAtendente" required="true"
+					requiredMessage="Preencher o Nome"
+					value="#{atendenteMB.atendente.nome}" />
+				<p:message for="nomeAtendente" />
 
-			<h:outputText value="CPF" />
-			<p:inputText id="cpfFuncionario" required="true"
-				requiredMessage="Preencher o CPF" value="#{atendenteMB.atendente.cpf}" />
-			<p:message for="cpfFuncionario" />
+				<h:outputText value="Endereço" />
+				<p:inputText id="enderecoAtendente" required="true"
+					requiredMessage="Preencher o Endereço"
+					value="#{atendenteMB.atendente.endereco}" />
+				<p:message for="enderecoAtendente" />
 
-			<h:outputText value="Telefone" />
-			<p:inputText id="TelefoneFuncionario" required="true"
-				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.telefone}" />
-			<p:message for="TelefoneFuncionario" />
+				<h:outputText value="CPF" />
+				<p:inputText id="cpfAtendente" required="true"
+					requiredMessage="Preencher o CPF"
+					value="#{atendenteMB.atendente.cpf}" />
+				<p:message for="cpfAtendente" />
 
-			<h:outputText value="E-mail" />
-			<p:inputText id="EmailFuncionario" required="true"
-				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.email}" />
-			<p:message for="EmailFuncionario" />
+				<h:outputText value="Telefone" />
+				<p:inputText id="telefoneAtendente" required="true"
+					requiredMessage="Preencher o telefone"
+					value="#{atendenteMB.atendente.telefone}" />
+				<p:message for="telefoneAtendente" />
 
-			<h:outputText value="Endereço" />
-			<p:inputText id="EnderecoFuncionario" required="true"
-				requiredMessage="Preencher o Telefone" value="#{atendenteMB.atendente.endereco}" />
-			<p:message for="EnderecoFuncionario" />
+				<h:outputText value="E-mail" />
+				<p:inputText id="emailAtendente" required="true"
+					requiredMessage="Preencher o E-mail"
+					value="#{atendenteMB.atendente.email}" />
+				<p:message for="emailAtendente" />
 
-			<p:commandButton update="@form, formTabelaFuncionarios"
-				value="Cadastrar" actionListener="#{atendenteMB.inserir()}" />
-		</h:panelGrid>
-	</h:form>
+
+				<h:outputText value="Data de Nascimento" />
+				<p:inputText id="nascAtendente" required="true"
+					requiredMessage="Preencher a data de Nascimento"
+					value="#{atendenteMB.atendente.dt_nascimento}" />
+				<p:message for="nascAtendente" />
+
+				<h:outputText value="Registro" />
+				<p:inputText id="regAtendente" required="true"
+					requiredMessage="Preencher a data de Nascimento"
+					value="#{atendenteMB.atendente.registro}" />
+				<p:message for="regAtendente" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaClientes"
+							value="Cadastrar" actionListener="#{atendenteMB.inserir()}"
+							oncomplete="faces/cadastroFuncionario?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+
+	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
+		resizable="false">
+		<h:form id="cadas">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputText value="Nome" />
+				<p:inputText id="nomeAtendente" required="true"
+					requiredMessage="Preencher o Nome"
+					value="#{atendenteMB.atendente.nome}" />
+				<p:message for="nomeAtendente" />
+
+				<h:outputText value="Endereço" />
+				<p:inputText id="enderecoAtendente" required="true"
+					requiredMessage="Preencher o Endereço"
+					value="#{atendenteMB.atendente.endereco}" />
+				<p:message for="enderecoAtendente" />
+
+				<h:outputText value="CPF" />
+				<p:inputText id="cpfAtendente" required="true"
+					requiredMessage="Preencher o CPF"
+					value="#{atendenteMB.atendente.cpf}" />
+				<p:message for="cpfAtendente" />
+
+				<h:outputText value="Telefone" />
+				<p:inputText id="telefoneAtendente" required="true"
+					requiredMessage="Preencher o telefone"
+					value="#{atendenteMB.atendente.telefone}" />
+				<p:message for="telefoneAtendente" />
+
+				<h:outputText value="E-mail" />
+				<p:inputText id="emailAtendente" required="true"
+					requiredMessage="Preencher o E-mail"
+					value="#{atendenteMB.atendente.email}" />
+				<p:message for="emailAtendente" />
+
+
+				<h:outputText value="Data de Nascimento" />
+				<p:inputText id="nascAtendente" required="true"
+					requiredMessage="Preencher a data de Nascimento"
+					value="#{atendenteMB.atendente.dt_nascimento}" />
+				<p:message for="nascAtendente" />
+
+				<h:outputText value="Registro" />
+				<p:inputText id="regAtendente" required="true"
+					requiredMessage="Preencher a data de Nascimento"
+					value="#{atendenteMB.atendente.registro}" />
+				<p:message for="regAtendente" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaClientes"
+							value="Cadastrar" actionListener="#{atendenteMB.inserir()}"
+							oncomplete="faces/cadastroFuncionario?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
 	<br />
-	<h:form id="formTabelaFuncionarios">
+	<h:form id="formTabelaClientes">
 		<p:dataTable value="#{atendenteMB.atendentes}" var="ate">
 			<p:column headerText="ID">
 				<h:outputText value="#{ate.id}" />
 			</p:column>
-			<p:column headerText="Nome">
+			<p:column headerText="Funcionario">
 				<h:outputText value="#{ate.nome}" />
 			</p:column>
-			<p:column headerText="Telefone">
-				<h:outputText value="#{ate.telefone}" />
+			
+			<p:column headerText="Registro">
+				<h:outputText value="#{ate.registro}" />
 			</p:column>
+
 			<p:column headerText="CPF">
 				<h:outputText value="#{ate.cpf}" />
 			</p:column>
-			<p:column headerText="E-mail">
-				<h:outputText value="#{ate.email}" />
-			</p:column>
+
 			<p:column headerText="Endereço">
 				<h:outputText value="#{ate.endereco}" />
 			</p:column>
 
+			<p:column headerText="Telefone">
+				<h:outputText value="#{ate.telefone}" />
+			</p:column>
+
+			<p:column headerText="Email">
+				<h:outputText value="#{ate.email}" />
+			</p:column>
+
+			<p:column headerText="Nascimento">
+				<h:outputText value="#{ate.dt_nascimento}" />
+			</p:column>
+
 			<p:column headerText="Opções">
-				<p:commandButton value="Alterar"
-					update="formularioTabelaFuncionarios">
+
+				<p:commandButton value="Alterar" onclick="PF('dlg').show()"
+					update="cad">
 					<f:setPropertyActionListener value="#{ate}"
 						target="#{atendenteMB.atendente}" />
 				</p:commandButton>
@@ -120,14 +198,13 @@
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
-
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			<p:commandButton value="Sim" type="button"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			<p:commandButton value="Não" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
 	</h:form>
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Sim" type="button"
+			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button"
+			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
 	<div class="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>

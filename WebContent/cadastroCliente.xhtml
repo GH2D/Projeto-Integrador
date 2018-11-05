@@ -17,9 +17,9 @@
 		<p:toolbar>
 			<f:facet name="left">
 				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
-					onclick="PF('dlg1').show()" title="Cadastrar" >
+					onclick="PF('dlg1').show()" title="Cadastrar">
 					<p:resetInput target="logindialogn" />
-					</p:commandButton>
+				</p:commandButton>
 				<p:commandButton type="button" value="Abrir"
 					icon="ui-icon-folder-open" />
 				<span class="ui-separator"> <span
@@ -81,8 +81,8 @@
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>
-	
-	
+
+
 	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
 		resizable="false">
 		<h:form id="cadas">
@@ -102,7 +102,7 @@
 				<p:message for="enderecoCliente" />
 
 				<h:outputText value="CPF" />
-				<p:inputMask mask="***.***.***-**"  id="cpfCliente" required="true"
+				<p:inputMask mask="***.***.***-**" id="cpfCliente" required="true"
 					requiredMessage="Preencher o CPF" value="#{clienteMB.cliente.cpf}" />
 				<p:message for="cpfCliente" />
 
