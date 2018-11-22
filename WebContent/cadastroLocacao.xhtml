@@ -6,15 +6,171 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
+<ui:include src="/cabecalho.xhtml" />
+
+<p:growl id="growl" showSummary="true" showDetail="true">
+	<p:autoUpdate />
+</p:growl>
 <body>
-	<ui:include src="/cabecalho.xhtml" />
+	<h:form>
+		<p:growl id="messages" showDetail="true" />
+		<p:toolbar>
+			<f:facet name="left">
+				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
+					onclick="PF('dlg1').show()" title="Cadastrar">
+					<p:resetInput target="logindialogn" />
+				</p:commandButton>
+				<p:commandButton type="button" value="Abrir"
+					icon="ui-icon-folder-open" />
+				<span class="ui-separator"> <span
+					class="ui-icon ui-icon-grip-dotted-vertical" />
+				</span>
+			</f:facet>
+		</p:toolbar>
+	</h:form>
+
+	<p:dialog id="logindialogn" header="Cadastrar" widgetVar="dlg"
+		resizable="false">
+		<h:form id="cad">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputText value="Titulo" />
+				<p:inputText id="titulo" required="true"
+					requiredMessage="Preencher o Titulo"
+					value="#{filmeMB.filme.titulo}" />
+				<p:message for="titulo" />
+
+				<h:outputText value="Data de Locação" />
+				<p:inputText id="dataLocacao" required="true"
+					requiredMessage="Preencher a Locação"
+					value="#{atendenteMB.atendente.endereco}" />
+				<p:message for="dataLocacao" />
+
+				<h:outputText value="Data de Devolucão" />
+				<p:inputText id="dataDevolucao" required="true"
+					requiredMessage="Preencher a Devolucão"
+					value="#{atendenteMB.atendente.cpf}" />
+				<p:message for="dataDevolucao" />
+
+				<h:outputText value="Devolucão" />
+				<p:inputText id="devolucao" required="true"
+					requiredMessage="Preencher a Devolucão"
+					value="#{atendenteMB.atendente.telefone}" />
+				<p:message for="devolucao" />
+
+				<h:outputText value="Multa" />
+				<p:inputText id="multa" required="true"
+					requiredMessage="Preencher a Multa"
+					value="#{atendenteMB.atendente.email}" />
+
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaMidias"
+							value="Cadastrar" actionListener="#{atendenteMB.inserir()}"
+							oncomplete="faces/cadastroFuncionario?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+
+	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
+		resizable="false">
+		<h:form id="cadas">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+	
+					<h:outputText value="Titulo" />
+				<p:inputText id="titulo" required="true"
+					requiredMessage="Preencher o Titulo"
+					value="#{filmeMB.filme.titulo}" />
+				<p:message for="titulo" />
+
+				<h:outputText value="Data de Locação" />
+				<p:inputText id="dataLocacao" required="true"
+					requiredMessage="Preencher a Locação"
+					value="#{atendenteMB.atendente.endereco}" />
+				<p:message for="dataLocacao" />
+
+				<h:outputText value="Data de Devolucão" />
+				<p:inputText id="dataDevolucao" required="true"
+					requiredMessage="Preencher a Devolucão"
+					value="#{atendenteMB.atendente.cpf}" />
+				<p:message for="dataDevolucao" />
+
+				<h:outputText value="Devolucão" />
+				<p:inputText id="devolucao" required="true"
+					requiredMessage="Preencher a Devolucão"
+					value="#{atendenteMB.atendente.telefone}" />
+				<p:message for="devolucao" />
+
+				<h:outputText value="Multa" />
+				<p:inputText id="multa" required="true"
+					requiredMessage="Preencher a Multa"
+					value="#{atendenteMB.atendente.email}" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaMidias"
+							value="Cadastrar" actionListener="#{atendenteMB.inserir()}"
+							oncomplete="faces/cadastroFuncionario?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
 	<br />
-	<p:growl id="growl" showSummary="true" showDetail="true">
-		<p:autoUpdate />
-	</p:growl>
+	<h:form id="formTabelaMidias">
+		<p:dataTable value="#{atendenteMB.atendentes}" var="loc">
+			<p:column headerText="ID">
+				<h:outputText value="#{loc.id}" />
+			</p:column>
+			<p:column headerText="Titulo">
+				<h:outputText value="#{loc.nome}" />
+			</p:column>
+			
+			<p:column headerText="Data de Locacão">
+				<h:outputText value="#{ate.registro}" />
+			</p:column>
+
+			<p:column headerText="Data de Devolucao">
+				<h:outputText value="#{ate.cpf}" />
+			</p:column>
+
+			<p:column headerText="Devolucão">
+				<h:outputText value="#{ate.endereco}" />
+			</p:column>
+
+			<p:column headerText="Multa">
+				<h:outputText value="#{ate.telefone}" />
+			</p:column>
 
 
+			<p:column headerText="Opções">
 
+				<p:commandButton value="Alterar" onclick="PF('dlg').show()"
+					update="cad">
+					<f:setPropertyActionListener value="#{ate}"
+						target="#{atendenteMB.atendente}" />
+				</p:commandButton>
+				<p:commandButton value="Excluir"
+					actionListener="#{atendenteMB.excluir(ate.id)}" update="@form">
+					<p:confirm header="Confirmação" message="Deseja excluir??"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Sim" type="button"
+			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button"
+			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
 	<div class="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>
