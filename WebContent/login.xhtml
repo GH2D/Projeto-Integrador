@@ -6,29 +6,32 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/Semantic-UI-CSS-master/semantic.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/Semantic-UI-CSS-master/semantic.css" />
 </h:head>
-<h:body style="background: url('#{request.contextPath}/itens/background/login.png') repeat-y !important;"> 
-<h:graphicImage value="/itens/logo/logo.png" style="position:absolute; top:65%;"/>
+<h:body
+	style="background: url('#{request.contextPath}/itens/background/login.png') repeat-y !important;">
+	<h:outputText value="E-mail ou senha incorretos"
+		rendered="#{param.error==true}" />
+	<h:form style="width:400px; margin-top:10%; margin-left:35%;">
+		<p:panel styleClass="ui inverted segment">
+			<h:panelGrid columns="1" styleClass="col-md-12  col-xs-12">
+				<form id="frmLogin" action="j_spring_security_check" method="post">
+					<label>E-mail</label>
+					<p:inputText required="true" id="j_username"
+						styleClass="col-md-12 col-xs-12" />
 
-<h:form style="width:400px; margin-top:10%; margin-left:35%;">             
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-    <p:panel styleClass="ui inverted segment" > 	
-    	<h4 class="ui dividing inverted header">Login</h4>  
-        <h:panelGrid styleClass="ui inverted form" columns="2" cellpadding="5"> 
-            <h:outputLabel for="usuario" value="Usuário:" />
-            <p:inputText id="usuario" value="#{login.usuario}" required="true" label="usuario" />
-            <h:outputLabel for="senha" value="Senha:" />
-            <p:password id="psenha" value="#{login.senha}" required="true" label="senha" /> 
-            <f:facet name="footer">
-                <p:commandButton value="Login" styleClass="ui inverted olive basic button"  update="growl" actionListener="#{login.login}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:panel>
-</h:form>
-	<div class="footer">
-	<ui:include src="/footer.xhtml" />
-	</div>
+
+					<label>Senha</label>
+					<p:password required="true" id="j_password"
+						styleClass="col-md-12 col-xs-12" />
+
+					<h:commandButton value="Entrar"
+						styleClass="ui-priority-primary btn btn-block" />
+
+				</form>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
 </h:body>
 </html>

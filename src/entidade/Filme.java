@@ -1,5 +1,8 @@
 package entidade;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Filme extends Midia{
 	private String atores;
 	private String distribuidora;

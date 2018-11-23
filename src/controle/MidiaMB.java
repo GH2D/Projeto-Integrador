@@ -40,7 +40,7 @@ public class MidiaMB {
 		return midia;
 	}
 
-	public void setCliente(Midia midia) {
+	public void setMidia(Midia midia) {
 		this.midia = midia;
 	}
 

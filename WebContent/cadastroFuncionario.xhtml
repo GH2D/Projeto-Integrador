@@ -65,6 +65,11 @@
 					value="#{atendenteMB.atendente.email}" />
 				<p:message for="emailAtendente" />
 
+				<h:outputText value="Senha" />
+				<p:inputText id="senhaAtendente" required="true"
+					requiredMessage="Preencher com Senha"
+					value="#{atendenteMB.atendente.senha}" />
+				<p:message for="emailAtendente" />
 
 				<h:outputText value="Data de Nascimento" />
 				<p:inputText id="nascAtendente" required="true"
@@ -77,6 +82,15 @@
 					requiredMessage="Preencher a data de Nascimento"
 					value="#{atendenteMB.atendente.registro}" />
 				<p:message for="regAtendente" />
+
+				<h:outputText value="Permissão" />
+				<p:selectOneMenu id="permissao"
+					value="#{atendenteMB.atendente.perfil}" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItem itemLabel="Administrador" itemValue="Administrador" />
+					<f:selectItem itemLabel="Vendedor" itemValue="Vendedor" />
+				</p:selectOneMenu>
+				<p:message for="permissao" />
 
 				<f:facet name="footer">
 					<div style="text-align: center">
@@ -126,6 +140,12 @@
 					value="#{atendenteMB.atendente.email}" />
 				<p:message for="emailAtendente" />
 
+				<h:outputText value="Senha" />
+				<p:inputText id="senhaAtendente" required="true"
+					requiredMessage="Preencher com Senha"
+					value="#{atendenteMB.atendente.senha}" />
+				<p:message for="emailAtendente" />
+
 
 				<h:outputText value="Data de Nascimento" />
 				<p:inputText id="nascAtendente" required="true"
@@ -159,7 +179,7 @@
 			<p:column headerText="Funcionario">
 				<h:outputText value="#{ate.nome}" />
 			</p:column>
-			
+
 			<p:column headerText="Registro">
 				<h:outputText value="#{ate.registro}" />
 			</p:column>

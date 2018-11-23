@@ -40,31 +40,24 @@
 		<p:growl id="messages" />
 		<p:menubar>
 			<p:submenu label="Usuário" icon="ui-icon-search">
-				<p:menuitem value="Funcionarios" url="/faces/cadastroFuncionario.xhtml" />
+				<p:menuitem value="Funcionarios" url="#{facesContext.externalContext.request.contextPath}/cadastroFuncionario.jsf" />
 				<p:separator />
-				<p:menuitem value="Cadastrar" url="#" />
 			</p:submenu>
 			<p:submenu label="Gerenciar" icon="ui-icon-pencil">
-				<p:menuitem value="Filmes" url="/faces/cadastroFilmes.xhtml" />
-				<p:menuitem value="Jogos" url="/faces/cadastroJogos.xhtml" />
-				<p:menuitem value="Clientes" url="/faces/cadastroCliente.xhtml" />
+				<p:menuitem value="Filmes" url="#{facesContext.externalContext.request.contextPath}/cadastroFilmes.jsf" />
+				<p:menuitem value="Jogos" url="#{facesContext.externalContext.request.contextPath}/cadastroJogos.jsf" />
+				<p:menuitem value="Clientes" url="#{facesContext.externalContext.request.contextPath}/cadastroCliente.jsf" />
 				<p:separator />
-				<p:menuitem value="Locar" url="/faces/cadastroLocacao.xhtml"
+				<p:menuitem value="Locar" url="#{facesContext.externalContext.request.contextPath}/cadastroLocacao.jsf"
 					icon="ui-icon-arrowreturnthick-1-w" />
-				<p:menuitem value="Devolver" url="/faces/cadastroDevolucao.xhtml"
+				<p:menuitem value="Devolver" url="#{facesContext.externalContext.request.contextPath}/cadastroDevolucao.jsf"
 					icon="ui-icon-arrowreturnthick-1-e" />
 			</p:submenu>
 
 			<p:submenu label="Relatórios" icon="ui-icon-document">
-				<p:menuitem value="Registros" url="/faces/relatorios.xhtml" />
+				<p:menuitem value="Registros" url="#{facesContext.externalContext.request.contextPath}/relatorios.jsf" />
 			</p:submenu>
 
-			<p:submenu label="Ferramentas" icon="ui-icon-gear">
-				<p:menuitem value="Calendario" icon="fa-calendar-o">
-				</p:menuitem>
-				<p:menuitem value="Calculadora" icon="fa-calculator">
-				</p:menuitem>
-			</p:submenu>
 
 			<f:facet name="options">
 				<p:inputText style="margin-right:10px" placeholder="Pesquisar" />
@@ -74,7 +67,7 @@
 						
 
 			</f:facet>
-			<p:menuitem value="Sair" url="/faces/login.xhtml">
+			<p:menuitem value="Sair" url="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">
 			</p:menuitem>
 		</p:menubar>
 	</h:form>

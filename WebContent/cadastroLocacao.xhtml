@@ -35,41 +35,41 @@
 			<p:growl id="growl2" showDetail="true" life="3000" />
 			<h:panelGrid columns="3" cellpadding="5">
 
+				<h:outputText value="Cliente" />
+				<p:selectOneMenu id="clienteLoc"
+					value="#{locacaoMB.locacao.cliente}" converter="converterCliente"
+					filter="true" filterMatchMode="startsWith">
+					<f:selectItems value="#{clienteMB.clientes}" var="cli"
+						itemLabel="#{cli.nome}" itemValue="#{cli}" />
+				</p:selectOneMenu>
+				<p:message for="clienteLoc" />
+
 				<h:outputText value="Titulo" />
-				<p:inputText id="titulo" required="true"
-					requiredMessage="Preencher o Titulo"
-					value="#{filmeMB.filme.titulo}" />
-				<p:message for="titulo" />
+				<p:selectOneMenu id="midiaLoc" value="#{locacaoMB.locacao.titulo}"
+					converter="converterMidia" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{midiaMB.midias}" var="mid"
+						itemLabel="#{mid.titulo}" itemValue="#{mid}" />
+				</p:selectOneMenu>
+				<p:message for="clienteLoc" />
 
 				<h:outputText value="Data de Locação" />
 				<p:inputText id="dataLocacao" required="true"
 					requiredMessage="Preencher a Locação"
-					value="#{atendenteMB.atendente.endereco}" />
+					value="#{locacaoMB.locacao.datalocacao}" />
 				<p:message for="dataLocacao" />
 
 				<h:outputText value="Data de Devolucão" />
 				<p:inputText id="dataDevolucao" required="true"
 					requiredMessage="Preencher a Devolucão"
-					value="#{atendenteMB.atendente.cpf}" />
+					value="#{locacaoMB.locacao.dataDevolucao}" />
 				<p:message for="dataDevolucao" />
-
-				<h:outputText value="Devolucão" />
-				<p:inputText id="devolucao" required="true"
-					requiredMessage="Preencher a Devolucão"
-					value="#{atendenteMB.atendente.telefone}" />
-				<p:message for="devolucao" />
-
-				<h:outputText value="Multa" />
-				<p:inputText id="multa" required="true"
-					requiredMessage="Preencher a Multa"
-					value="#{atendenteMB.atendente.email}" />
-
 
 				<f:facet name="footer">
 					<div style="text-align: center">
-						<p:commandButton id="submit" update="formTabelaMidias"
-							value="Cadastrar" actionListener="#{atendenteMB.inserir()}"
-							oncomplete="faces/cadastroFuncionario?faces-redirect=true" />
+						<p:commandButton id="submit" update="formTabelaLocacao"
+							value="Cadastrar" actionListener="#{locacaoMB.inserir()}"
+							oncomplete="faces/cadastrolocacao?faces-redirect=true" />
 					</div>
 				</f:facet>
 			</h:panelGrid>
@@ -81,42 +81,43 @@
 		resizable="false">
 		<h:form id="cadas">
 			<p:growl id="growl2" showDetail="true" life="3000" />
-			<h:panelGrid columns="3" cellpadding="5">
-	
-					<h:outputText value="Titulo" />
-				<p:inputText id="titulo" required="true"
-					requiredMessage="Preencher o Titulo"
-					value="#{filmeMB.filme.titulo}" />
-				<p:message for="titulo" />
+			<h:panelGrid columns="5" cellpadding="10">
+
+				<h:outputText value="Cliente" />
+				<p:selectOneMenu id="clienteLoc"
+					value="#{locacaoMB.locacao.cliente}" converter="converterCliente"
+					filter="true" filterMatchMode="startsWith">
+					<f:selectItems value="#{clienteMB.clientes}" var="cli"
+						itemLabel="#{cli.nome}" itemValue="#{cli}" />
+				</p:selectOneMenu>
+				<p:message for="clienteLoc" />
+
+				<h:outputText value="Titulo" />
+				<p:selectOneMenu id="midiaLoc" value="#{locacaoMB.locacao.titulo}"
+					converter="converterMidia" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{midiaMB.midias}" var="mid"
+						itemLabel="#{mid.titulo}" itemValue="#{mid}" />
+				</p:selectOneMenu>
+				<p:message for="clienteLoc" />
 
 				<h:outputText value="Data de Locação" />
 				<p:inputText id="dataLocacao" required="true"
 					requiredMessage="Preencher a Locação"
-					value="#{atendenteMB.atendente.endereco}" />
+					value="#{locacaoMB.locacao.datalocacao}" />
 				<p:message for="dataLocacao" />
 
 				<h:outputText value="Data de Devolucão" />
 				<p:inputText id="dataDevolucao" required="true"
 					requiredMessage="Preencher a Devolucão"
-					value="#{atendenteMB.atendente.cpf}" />
+					value="#{locacaoMB.locacao.dataDevolucao}" />
 				<p:message for="dataDevolucao" />
-
-				<h:outputText value="Devolucão" />
-				<p:inputText id="devolucao" required="true"
-					requiredMessage="Preencher a Devolucão"
-					value="#{atendenteMB.atendente.telefone}" />
-				<p:message for="devolucao" />
-
-				<h:outputText value="Multa" />
-				<p:inputText id="multa" required="true"
-					requiredMessage="Preencher a Multa"
-					value="#{atendenteMB.atendente.email}" />
 
 				<f:facet name="footer">
 					<div style="text-align: center">
-						<p:commandButton id="submit" update="formTabelaMidias"
-							value="Cadastrar" actionListener="#{atendenteMB.inserir()}"
-							oncomplete="faces/cadastroFuncionario?faces-redirect=true" />
+						<p:commandButton id="submit" update="formTabelaLocacao"
+							value="Cadastrar" actionListener="#{locacaoMB.inserir()}"
+							oncomplete="faces/cadastroLocacao?faces-redirect=true" />
 					</div>
 				</f:facet>
 			</h:panelGrid>
@@ -124,29 +125,26 @@
 	</p:dialog>
 
 	<br />
-	<h:form id="formTabelaMidias">
-		<p:dataTable value="#{atendenteMB.atendentes}" var="loc">
+	<h:form id="formTabelaLocacao">
+		<p:dataTable value="#{locacaoMB.locacoes}" var="loc">
 			<p:column headerText="ID">
 				<h:outputText value="#{loc.id}" />
 			</p:column>
+
+			<p:column headerText="Cliente">
+				<h:outputText value="#{loc.cliente}" />
+			</p:column>
+
 			<p:column headerText="Titulo">
-				<h:outputText value="#{loc.nome}" />
-			</p:column>
-			
-			<p:column headerText="Data de Locacão">
-				<h:outputText value="#{ate.registro}" />
+				<h:outputText value="#{loc.titulo}" />
 			</p:column>
 
-			<p:column headerText="Data de Devolucao">
-				<h:outputText value="#{ate.cpf}" />
+			<p:column headerText="Data de Locação">
+				<h:outputText value="#{loc.datalocacao}" />
 			</p:column>
 
-			<p:column headerText="Devolucão">
-				<h:outputText value="#{ate.endereco}" />
-			</p:column>
-
-			<p:column headerText="Multa">
-				<h:outputText value="#{ate.telefone}" />
+			<p:column headerText="Data de Devolução">
+				<h:outputText value="#{loc.dataDevolucao}" />
 			</p:column>
 
 
@@ -154,23 +152,33 @@
 
 				<p:commandButton value="Alterar" onclick="PF('dlg').show()"
 					update="cad">
-					<f:setPropertyActionListener value="#{ate}"
-						target="#{atendenteMB.atendente}" />
+					<f:setPropertyActionListener value="#{loc}"
+						target="#{locacaoMB.locacao}" />
 				</p:commandButton>
+
+
+
 				<p:commandButton value="Excluir"
-					actionListener="#{atendenteMB.excluir(ate.id)}" update="@form">
+					actionListener="#{locacaoMB.excluir(loc.id)}" update="@form">
 					<p:confirm header="Confirmação" message="Deseja excluir??"
 						icon="ui-icon-alert" />
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
 	</h:form>
+
+
+
 	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 		<p:commandButton value="Sim" type="button"
 			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
 		<p:commandButton value="Não" type="button"
 			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 	</p:confirmDialog>
+
+
+
+
 	<div class="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>

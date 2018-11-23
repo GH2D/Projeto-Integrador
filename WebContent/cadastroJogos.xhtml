@@ -6,143 +6,206 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
+<ui:include src="/cabecalho.xhtml" />
+
+<p:growl id="growl" showSummary="true" showDetail="true">
+	<p:autoUpdate />
+</p:growl>
 <body>
-	<ui:include src="/cabecalho.xhtml" />
-	<p:growl id="growl" showSummary="true" showDetail="true">
-		<p:autoUpdate />
-	</p:growl>
 	<h:form>
 		<p:growl id="messages" showDetail="true" />
-
 		<p:toolbar>
 			<f:facet name="left">
 				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
-					onclick="PF('dialogWidget').show()" />
-
+					onclick="PF('dlg1').show()" title="Cadastrar">
+					<p:resetInput target="logindialogn" />
+				</p:commandButton>
 				<p:commandButton type="button" value="Abrir"
 					icon="ui-icon-folder-open" />
-
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
-
-				<p:commandButton type="button" title="Salvar" icon="ui-icon-disk" />
-				<p:commandButton type="button" title="Deletar" icon="ui-icon-trash" />
-				<p:commandButton type="button" title="Imprimir" icon="ui-icon-print" />
 			</f:facet>
-
-			<f:facet name="right">
-				<p:menuButton value="Options">
-					<p:menuitem value="Salvar" actionListener="#{toolbarView.save}"
-						update="messages" icon="ui-icon-disk" />
-					<p:menuitem value="Atualizar"
-						actionListener="#{toolbarView.update}" update="messages"
-						icon="ui-icon-arrowrefresh-1-w" />
-					<p:menuitem value="Deletar" actionListener="#{toolbarView.delete}"
-						ajax="false" icon="ui-icon-close" />
-					<p:menuitem value="DashBoard" url="/telaInicial.xhtml"
-						icon="ui-icon-extlink" />
-				</p:menuButton>
-			</f:facet>
-
 		</p:toolbar>
 	</h:form>
-	<h:form id="formularioCadastroJogos">
 
-		<h:panelGrid columns="3" layout="grid">
-			<h:outputText value="Titulo" />
-			<p:inputText id="nomeTitulo" required="true"
-				requiredMessage="Preencher o Titulo"
-				value="#" />
-			<p:message for="nomeTitulo" />
+	<p:dialog id="logindialogn" header="Cadastrar" widgetVar="dlg"
+		resizable="false">
+		<h:form id="cad">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
 
-			<h:outputText value="Plataforma" />
-			<p:inputText id="plataforma" required="true"
-				requiredMessage="Preencher a Plataforma"
-				value="#" />
-			<p:message for="plataforma" />
+				<h:outputText value="Titulo" />
+				<p:inputText id="tituloJogo" required="true"
+					requiredMessage="Preencher o Titulo" value="#{jogoMB.jogo.titulo}" />
+				<p:message for="tituloJogo" />
 
-			<h:outputText value="Genêro" />
-			<p:inputText id="genero" required="true"
-				requiredMessage="Preencher o Genêro"
-				value="#" />
-			<p:message for="genero" />
+				<h:outputText value="Plataforma" />
+				<p:inputText id="plataformaJogo" required="true"
+					requiredMessage="Preencher a Plataforma]"
+					value="#{jogoMB.jogo.plataforma}" />
+				<p:message for="plataformaJogo" />
 
-			<h:outputText value="Categoria" />
-			<p:inputText id="categoria" required="true"
-				requiredMessage="Preencher a Categoria"
-				value="#" />
-			<p:message for="categoria" />
+				<h:outputText value="Distribuidora" />
+				<p:inputText id="distribuidoraJogo" required="true"
+					requiredMessage="Preencher a Distribuidora"
+					value="#{jogoMB.jogo.distribuidora}" />
+				<p:message for="distribuidoraJogo" />
 
-			<h:outputText value="Distribuidora" />
-			<p:inputText id="distribuidora" required="true"
-				requiredMessage="Preencher a Distribuidora"
-				value="#" />
-			<p:message for="distribuidora" />
+				<h:outputText value="Genêro" />
+				<p:inputText id="generoJogo" required="true"
+					requiredMessage="Preencher o Genêro" value="#{jogoMB.jogo.genero}" />
+				<p:message for="generoJogo" />
 
-			<h:outputText value="Faixa Etaria" />
-			<p:inputText id="faixaEtaria" required="true"
-				requiredMessage="Preencher a Faixa Etaria"
-				value="#" />
-			<p:message for="faixaEtaria" />
-			
-			<h:outputText value="Data de lançamento" />
-			<p:inputText id="dataLancamento" required="true"
-				requiredMessage="Preencher a Data de Lançamento"
-				value="#" />
-			<p:message for="dataLancamento" />
+				<h:outputText value="Categoria" />
+				<p:inputText id="categoriaJogo" required="true"
+					requiredMessage="Preencher com a Categorial"
+					value="#{jogoMB.jogo.categoria}" />
+				<p:message for="categoriaJogo" />
 
-			<p:commandButton update="@form, formTabelaJogos" value="Cadastrar"
-				actionListener="#{clienteMB.inserir()}" />
-		</h:panelGrid>
-	</h:form>
+
+				<h:outputText value="Data de Lançamento do Jogo" />
+				<p:inputText id="dtlJogo" required="true"
+					requiredMessage="Preencher com data de lançamento"
+					value="#{jogoMB.jogo.dataLancamento}" />
+				<p:message for="dtlJogo" />
+
+				<h:outputText value="faixaEtariaJogo" />
+				<p:inputText id="feJogo" required="true"
+					requiredMessage="Preencher com a Faixa Etaria"
+					value="#{jogoMB.jogo.faixaEtaria}" />
+				<p:message for="feJogo" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaJogos"
+							value="Cadastrar" actionListener="#{jogoMB.inserir()}"
+							oncomplete="faces/cadastroCliente?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+
+	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
+		resizable="false">
+		<h:form id="cadas">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputText value="Titutlo" />
+				<p:inputText id="tituloJogo" required="true"
+					requiredMessage="Preencher o Titulo" value="#{jogoMB.jogo.titulo}" />
+				<p:message for="tituloJogo" />
+
+				<h:outputText value="Plataforma" />
+				<p:inputText id="plataformaJogo" required="true"
+					requiredMessage="Preencher a Plataforma]"
+					value="#{jogoMB.jogo.plataforma}" />
+				<p:message for="plataformaJogo" />
+
+				<h:outputText value="Distribuidora" />
+				<p:inputText id="distribuidoraJogo" required="true"
+					requiredMessage="Preencher a Distribuidora"
+					value="#{jogoMB.jogo.distribuidora}" />
+				<p:message for="distribuidoraJogo" />
+
+				<h:outputText value="Genêro" />
+				<p:inputText id="generoJogo" required="true"
+					requiredMessage="Preencher o Genêro" value="#{jogoMB.jogo.genero}" />
+				<p:message for="generoJogo" />
+
+				<h:outputText value="Categoria" />
+				<p:inputText id="categoriaJogo" required="true"
+					requiredMessage="Preencher com a Categorial"
+					value="#{jogoMB.jogo.categoria}" />
+				<p:message for="categoriaJogo" />
+
+
+				<h:outputText value="Data de Lançamento do Jogo" />
+				<p:inputText id="dtlJogo" required="true"
+					requiredMessage="Preencher com data de lançamento"
+					value="#{jogoMB.jogo.dataLancamento}" />
+				<p:message for="dtlJogo" />
+
+				<h:outputText value="faixaEtariaJogo" />
+				<p:inputText id="feJogo" required="true"
+					requiredMessage="Preencher com a Faixa Etaria"
+					value="#{jogoMB.jogo.faixaEtaria}" />
+				<p:message for="feJogo" />
+
+				<f:facet name="final">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaJogos"
+							value="Cadastrar" actionListener="#{jogoMB.inserir()}"
+							oncomplete="faces/cadastroCliente?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
 	<br />
 	<h:form id="formTabelaJogos">
-		<p:dataTable value="#" var="">
+		<p:dataTable value="#{jogoMB.jogo}" var="jog">
 			<p:column headerText="ID">
-				<h:outputText value="#" />
+				<h:outputText value="#{jog.id}" />
 			</p:column>
 			<p:column headerText="Titulo">
-				<h:outputText value="#" />
+				<h:outputText value="#{jog.titulo}" />
 			</p:column>
+
 			<p:column headerText="Plataforma">
-				<h:outputText value="#" />
+				<h:outputText value="#{jog.plataforma}" />
 			</p:column>
-			<p:column headerText="Genêro">
-				<h:outputText value="#" />
-			</p:column>
-			<p:column headerText="Categoria">
-				<h:outputText value="#" />
-			</p:column>
+
 			<p:column headerText="Distribuidora">
-				<h:outputText value="#" />
+				<h:outputText value="#{jog.distribuidora}" />
 			</p:column>
-			<p:column headerText="Faixa Etaria">
-				<h:outputText value="#" />
+
+			<p:column headerText="Genêro">
+				<h:outputText value="#{jog.genero}" />
 			</p:column>
+
+			<p:column headerText="Categoria">
+				<h:outputText value="#{jog.categoria}" />
+			</p:column>
+
 			<p:column headerText="Data de Lançamento">
-				<h:outputText value="#" />
+				<h:outputText value="#{jog.dataLancamento}" />
 			</p:column>
+
 			<p:column headerText="Opções">
-				<p:commandButton value="Alterar" update="formularioCadastroJogos">
-					<f:setPropertyActionListener value="#{cid}"
-						target="#{clienteMB.cliente}" />
+
+				<p:commandButton value="Alterar" onclick="PF('dlg').show()"
+					update="cad">
+					<f:setPropertyActionListener value="#{jog}" target="#{jogoMB.jogo}" />
 				</p:commandButton>
+
+
+
 				<p:commandButton value="Excluir"
-					actionListener="#{clienteMB.excluir(cid.id)}" update="@form">
+					actionListener="#{jogoMB.excluir(jog.id)}" update="@form">
 					<p:confirm header="Confirmação" message="Deseja excluir??"
 						icon="ui-icon-alert" />
 				</p:commandButton>
 			</p:column>
 		</p:dataTable>
-
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			<p:commandButton value="Sim" type="button"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			<p:commandButton value="Não" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
 	</h:form>
+
+
+
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Sim" type="button"
+			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button"
+			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
+
+
+
+
 	<div class="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>

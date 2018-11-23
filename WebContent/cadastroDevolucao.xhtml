@@ -12,9 +12,199 @@
 	<p:growl id="growl" showSummary="true" showDetail="true">
 		<p:autoUpdate />
 	</p:growl>
+	<h:form>
+		<p:growl id="messages" showDetail="true" />
+		<p:toolbar>
+			<f:facet name="left">
+				<p:commandButton type="button" value="Novo" icon="ui-icon-document"
+					onclick="PF('dlg1').show()" title="Cadastrar">
+					<p:resetInput target="logindialogn" />
+				</p:commandButton>
+				<p:commandButton type="button" value="Abrir"
+					icon="ui-icon-folder-open" />
+				<span class="ui-separator"> <span
+					class="ui-icon ui-icon-grip-dotted-vertical" />
+				</span>
+			</f:facet>
+		</p:toolbar>
+	</h:form>
+
+	<p:dialog id="logindialogn" header="Cadastrar" widgetVar="dlg"
+		resizable="false">
+		<h:form id="cad">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputText value="Cliente" />
+				<p:selectOneMenu id="clienteDev"
+					value="#{locacaoMB.locacao.cliente}" converter="converterDevolucao"
+					filter="true" filterMatchMode="startsWith">
+					<f:selectItems value="#{clienteMB.clientes}" var="dev"
+						itemLabel="#{dev.nome}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="clienteDev" />
+
+				<h:outputText value="Titulo" />
+				<p:selectOneMenu id="tituloDev" value="#{locacaoMB.locacao.titulo}"
+					converter="converterDevolucao" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{midiaMB.midia}" var="dev"
+						itemLabel="#{dev.titulo}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="clienteDev" />
+
+				<h:outputText value="DataLocacao" />
+				<p:selectOneMenu id="dlDev" value="#{locacaoMB.locacao.datalocacao}"
+					converter="converterDevolucao" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{locacaoMB.locacao}" var="dev"
+						itemLabel="#{dev.datalocacao}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="dlDev" />
+
+				<h:outputText value="Data de Devolucão" />
+				<p:selectOneMenu id="ddDev"
+					value="#{locacaoMB.locacao.dataDevolucao}"
+					converter="converterDevolucao" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{locacaoMB.locacao}" var="dev"
+						itemLabel="#{dev.dataDevolucao}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="ddDev" />
+
+				<h:outputText value="Status" />
+				<p:inputText id="statusDev" required="true"
+					requiredMessage="Preencher o Status"
+					value="#{devolucaoMB.devolucao.status}" />
+				<p:message for="statusDev" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaLocacao"
+							value="Cadastrar" actionListener="#{locacaoMB.inserir()}"
+							oncomplete="faces/cadastroDevolucao?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+
+	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
+		resizable="false">
+		<h:form id="cadas">
+			<p:growl id="growl2" showDetail="true" life="3000" />
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputText value="Cliente" />
+				<p:selectOneMenu id="clienteDev"
+					value="#{locacaoMB.locacao.cliente}" converter="converterDevolucao"
+					filter="true" filterMatchMode="startsWith">
+					<f:selectItems value="#{clienteMB.clientes}" var="dev"
+						itemLabel="#{dev.nome}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="clienteDev" />
+
+				<h:outputText value="Titulo" />
+				<p:selectOneMenu id="tituloDev" value="#{locacaoMB.locacao.titulo}"
+					converter="converterDevolucao" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{midiaMB.midia}" var="dev"
+						itemLabel="#{dev.titulo}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="clienteDev" />
+
+				<h:outputText value="DataLocacao" />
+				<p:selectOneMenu id="dlDev" value="#{locacaoMB.locacao.datalocacao}"
+					converter="converterDevolucao" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{locacaoMB.locacao}" var="dev"
+						itemLabel="#{dev.datalocacao}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="dlDev" />
+
+				<h:outputText value="Data de Devolucão" />
+				<p:selectOneMenu id="ddDev"
+					value="#{locacaoMB.locacao.dataDevolucao}"
+					converter="converterDevolucao" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{locacaoMB.locacao}" var="dev"
+						itemLabel="#{dev.dataDevolucao}" itemValue="#{dev}" />
+				</p:selectOneMenu>
+				<p:message for="ddDev" />
+
+				<h:outputText value="Status" />
+				<p:inputText id="statusDev" required="true"
+					requiredMessage="Preencher o Status"
+					value="#{devolucaoMB.devolucao.status}" />
+				<p:message for="statusDev" />
+
+				<f:facet name="footer">
+					<div style="text-align: center">
+						<p:commandButton id="submit" update="formTabelaLocacao"
+							value="Cadastrar" actionListener="#{locacaoMB.inserir()}"
+							oncomplete="faces/cadastroDevolucao?faces-redirect=true" />
+					</div>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+	<br />
+	<h:form id="formTabelaLocacao">
+		<p:dataTable value="#{devolucaoMB.devolucao}" var="dev">
+			<p:column headerText="ID">
+				<h:outputText value="#{dev.locacao.id}" />
+			</p:column>
+
+			<p:column headerText="Cliente">
+				<h:outputText value="#{dev.locacao.cliente}" />
+			</p:column>
+
+			<p:column headerText="Titulo">
+				<h:outputText value="#{dev.locacao.titulo}" />
+			</p:column>
+
+			<p:column headerText="Data de Locação">
+				<h:outputText value="#{dev.locacao.datalocacao}" />
+			</p:column>
+
+			<p:column headerText="Data de Devolução">
+				<h:outputText value="#{dev.locacao.dataDevolucao}" />
+			</p:column>
+
+			<p:column headerText="Status">
+				<h:outputText value="#{dev.status}" />
+			</p:column>
+
+
+			<p:column headerText="Opções">
+
+				<p:commandButton value="Alterar" onclick="PF('dlg').show()"
+					update="cad">
+					<f:setPropertyActionListener value="#{loc}"
+						target="#{locacaoMB.locacao}" />
+				</p:commandButton>
 
 
 
+				<p:commandButton value="Excluir"
+					actionListener="#{locacaoMB.excluir(loc.id)}" update="@form">
+					<p:confirm header="Confirmação" message="Deseja excluir??"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+
+
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Sim" type="button"
+			styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button"
+			styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
 	<div class="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>

@@ -1,10 +1,12 @@
 package entidade;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Locacao {
@@ -12,10 +14,10 @@ public class Locacao {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String titulo;
-	private String datalocacao;
-	private String dataDevolucao;
-	private Boolean devolucao;
-	private Double multa;
+	@ManyToOne
+	private Cliente cliente;
+	private Date datalocacao;
+	private Date dataDevolucao;
 
 	public Long getId() {
 		return id;
@@ -25,8 +27,6 @@ public class Locacao {
 		this.id = id;
 	}
 
-
-
 	public String getTitulo() {
 		return titulo;
 	}
@@ -35,37 +35,30 @@ public class Locacao {
 		this.titulo = titulo;
 	}
 
-	public String getDatalocacao() {
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Date getDatalocacao() {
 		return datalocacao;
 	}
 
-	public void setDatalocacao(String datalocacao) {
+	public void setDatalocacao(Date datalocacao) {
 		this.datalocacao = datalocacao;
 	}
 
-	public String getDataDevolucao() {
+	public Date getDataDevolucao() {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(String dataDevolucao) {
+	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
-	public Boolean getDevolucao() {
-		return devolucao;
-	}
-
-	public void setDevolucao(Boolean devolucao) {
-		this.devolucao = devolucao;
-	}
-
-	public Double getMulta() {
-		return multa;
-	}
-
-	public void setMulta(Double multa) {
-		this.multa = multa;
-	}
 
 	@Override
 	public int hashCode() {

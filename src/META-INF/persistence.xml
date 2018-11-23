@@ -12,6 +12,10 @@
 		<class>entidade.Cliente</class>
 		<class>entidade.Fornecedor</class>
 		<class>entidade.Atendente</class>
+		<class>entidade.Jogo</class>
+		<class>entidade.Filme</class>
+		<class>entidade.Categoria</class>
+		<class>entidade.Devolucao</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/fuscaazul" />

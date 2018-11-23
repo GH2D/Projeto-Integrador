@@ -3,6 +3,7 @@ package controle;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -15,6 +16,7 @@ public class JogoMB {
 	private Jogo jogo = new Jogo();
 	private List<Jogo> jogos = new ArrayList<>();
 	private DAOGenerico<Jogo> dao = new DAOGenerico<>(Jogo.class);
+	
 	
 	public JogoMB(){
 		jogos = dao.buscarTodos();
@@ -39,7 +41,6 @@ public class JogoMB {
 	public Jogo getJogo() {
 		return jogo;
 	}
-
 	public void setJogo(Jogo jogo) {
 		this.jogo = jogo;
 	}

@@ -1,5 +1,8 @@
 package entidade;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Jogo extends Midia{
 
 	private String plataforma;
