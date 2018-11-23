@@ -31,7 +31,7 @@
 
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="SELECT email as username, senha as password, enable FROM pessoa WHERE email=?"
-				authorities-by-username-query="SELECT email as username, perfil as authority FROM pessoa WHERE email=?" />
+				authorities-by-username-query="SELECT email as username, perfil as DTYPE FROM pessoa WHERE email=?" />
 
 		</authentication-provider>
 
