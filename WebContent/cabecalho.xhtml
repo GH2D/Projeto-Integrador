@@ -40,22 +40,22 @@
 		<p:growl id="messages" />
 		<p:menubar>
 			<p:submenu label="Usuário" icon="ui-icon-search">
-				<p:menuitem value="Funcionarios" url="#{facesContext.externalContext.request.contextPath}/cadastroFuncionario.jsf" />
+				<p:menuitem value="Funcionarios" url="/cadastroFuncionario.jsf" />
 				<p:separator />
 			</p:submenu>
 			<p:submenu label="Gerenciar" icon="ui-icon-pencil">
-				<p:menuitem value="Filmes" url="#{facesContext.externalContext.request.contextPath}/cadastroFilmes.jsf" />
-				<p:menuitem value="Jogos" url="#{facesContext.externalContext.request.contextPath}/cadastroJogos.jsf" />
-				<p:menuitem value="Clientes" url="#{facesContext.externalContext.request.contextPath}/cadastroCliente.jsf" />
+				<p:menuitem value="Filmes" url="/cadastroFilmes.jsf" />
+				<p:menuitem value="Jogos" url="/cadastroJogos.jsf" />
+				<p:menuitem value="Clientes" url="/cadastroCliente.jsf" />
 				<p:separator />
-				<p:menuitem value="Locar" url="#{facesContext.externalContext.request.contextPath}/cadastroLocacao.jsf"
+				<p:menuitem value="Locar" url="/cadastroLocacao.jsf"
 					icon="ui-icon-arrowreturnthick-1-w" />
-				<p:menuitem value="Devolver" url="#{facesContext.externalContext.request.contextPath}/cadastroDevolucao.jsf"
+				<p:menuitem value="Devolver" url="/cadastroDevolucao.jsf"
 					icon="ui-icon-arrowreturnthick-1-e" />
 			</p:submenu>
 
 			<p:submenu label="Relatórios" icon="ui-icon-document">
-				<p:menuitem value="Registros" url="#{facesContext.externalContext.request.contextPath}/relatorios.jsf" />
+				<p:menuitem value="Registros" url="/relatorios.jsf" />
 			</p:submenu>
 
 
@@ -67,7 +67,7 @@
 						
 
 			</f:facet>
-			<p:menuitem value="Sair" url="#{facesContext.externalContext.request.contextPath}/j_spring_security_logout">
+			<p:menuitem value="Sair" url="/j_spring_security_logout">
 			</p:menuitem>
 		</p:menubar>
 	</h:form>
