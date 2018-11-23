@@ -94,6 +94,7 @@
 
 	<p:dialog id="cadastrar" header="Cadastrar" widgetVar="dlg1"
 		resizable="false">
+	
 		<h:form id="cadas">
 			<p:growl id="growl2" showDetail="true" life="3000" />
 			<h:panelGrid columns="3" cellpadding="5">
@@ -142,7 +143,7 @@
 					value="#{filmeMB.filme.faixaEtaria}" />
 				<p:message for="feFilme" />
 
-				<f:facet name="final">
+				<f:facet name="footer">
 					<div style="text-align: center">
 						<p:commandButton id="submit" update="formTabelaFilmes"
 							value="Cadastrar" actionListener="#{filmeMB.inserir()}"
