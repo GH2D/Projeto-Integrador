@@ -104,13 +104,16 @@
 				<h:outputText value="Data de Locação" />
 				<p:inputText id="dataLocacao" required="true"
 					requiredMessage="Preencher a Locação"
-					value="#{locacaoMB.locacao.datalocacao}" />
+					value="#{locacaoMB.locacao.datalocacao}" >
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</p:inputText>
 				<p:message for="dataLocacao" />
 
 				<h:outputText value="Data de Devolucão" />
 				<p:inputText id="dataDevolucao" required="true"
 					requiredMessage="Preencher a Devolucão"
-					value="#{locacaoMB.locacao.dataDevolucao}" />
+					value="#{locacaoMB.locacao.dataDevolucao}"
+					 ><f:convertDateTime pattern="dd/MM/yyyy"/></p:inputText>
 				<p:message for="dataDevolucao" />
 
 				<f:facet name="footer">

@@ -1,6 +1,5 @@
 package entidade;
 
-import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +10,6 @@ public class Midia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date dataLancamento;
 	private String titulo;
 	private String categoria;
 	private char faixaEtaria;
@@ -25,13 +23,6 @@ public class Midia {
 		this.id = id;
 	}
 
-	public Date getDataLancamento() {
-		return dataLancamento;
-	}
-
-	public void setDataLancamento(Date dataLancamento) {
-		this.dataLancamento = dataLancamento;
-	}
 
 	public String getTitulo() {
 		return titulo;

@@ -68,12 +68,6 @@
 				<p:message for="categoriaFilme" />
 
 
-				<h:outputText value="Data de Lançamento do Filme" />
-				<p:inputText id="dtlFilme" required="true"
-					requiredMessage="Preencher com data de lançamento"
-					value="#{filmeMB.filme.dataLancamento}" />
-				<p:message for="dtlFilme" />
-
 				<h:outputText value="Faixa Etaria do Filme" />
 				<p:inputText id="feFilme" required="true"
 					requiredMessage="Preencher com a Faixa Etaria"
@@ -131,12 +125,6 @@
 				<p:message for="categoriaFilme" />
 
 
-				<h:outputText value="Data de Lançamento do Filme" />
-				<p:inputText id="dtnscFilme" required="true"
-					requiredMessage="Preencher com data de lançamento"
-					value="#{filmeMB.filme.dataLancamento}" />
-				<p:message for="dtnscFilme" />
-
 				<h:outputText value="Faixa Etaria do Filme" />
 				<p:inputText id="feFilme" required="true"
 					requiredMessage="Preencher com a Faixa Etaria"
@@ -180,9 +168,6 @@
 				<h:outputText value="#{film.categoria}" />
 			</p:column>
 
-			<p:column headerText="Data de Lançamento">
-				<h:outputText value="#{film.dataLancamento}" />
-			</p:column>
 
 			<p:column headerText="Opções">
 

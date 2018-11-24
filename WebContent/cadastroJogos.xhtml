@@ -64,11 +64,6 @@
 				<p:message for="categoriaJogo" />
 
 
-				<h:outputText value="Data de Lançamento do Jogo" />
-				<p:inputText id="dtlJogo" required="true"
-					requiredMessage="Preencher com data de lançamento"
-					value="#{jogoMB.jogo.dataLancamento}" />
-				<p:message for="dtlJogo" />
 
 				<h:outputText value="faixaEtariaJogo" />
 				<p:inputText id="feJogo" required="true"
@@ -123,11 +118,6 @@
 				<p:message for="categoriaJogo" />
 
 
-				<h:outputText value="Data de Lançamento do Jogo" />
-				<p:inputText id="dtlJogo" required="true"
-					requiredMessage="Preencher com data de lançamento"
-					value="#{jogoMB.jogo.dataLancamento}" />
-				<p:message for="dtlJogo" />
 
 				<h:outputText value="faixaEtariaJogo" />
 				<p:inputText id="feJogo" required="true"
@@ -135,7 +125,7 @@
 					value="#{jogoMB.jogo.faixaEtaria}" />
 				<p:message for="feJogo" />
 
-				<f:facet name="final">
+				<f:facet name="footer">
 					<div style="text-align: center">
 						<p:commandButton id="submit" update="formTabelaJogos"
 							value="Cadastrar" actionListener="#{jogoMB.inserir()}"
@@ -170,10 +160,6 @@
 
 			<p:column headerText="Categoria">
 				<h:outputText value="#{jog.categoria}" />
-			</p:column>
-
-			<p:column headerText="Data de Lançamento">
-				<h:outputText value="#{jog.dataLancamento}" />
 			</p:column>
 
 			<p:column headerText="Opções">
